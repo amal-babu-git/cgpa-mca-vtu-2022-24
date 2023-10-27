@@ -5,14 +5,10 @@ import Home from "./components/home/home";
 import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
 import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
-import { useEffect } from "react";
-import { getUserIpDetails } from "./userDataCollection/metaDataCollection";
 
 function App() {
 
-	useEffect(()=>{
-		getUserIpDetails();
-	},[])
+	
 	const ShowMyProfile = () => {
 		return (
 			<>
