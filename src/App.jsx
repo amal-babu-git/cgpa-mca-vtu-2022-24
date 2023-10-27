@@ -1,5 +1,9 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
-import SGPACard from "./components/SGPA/SGPACard";
+import Navbar from "./components/header/Navbar";
+import Home from "./components/home/home";
+import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
+import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 
 function App() {
 	const ShowMyProfile = () => {
@@ -7,12 +11,11 @@ function App() {
 			<>
 				<div className="text-end">
 					<a
-						
 						className="btn btn-link"
 						href="http://www.github.com/amal-babu-git"
 						// target="_blank"
 					>
-						AMAL BABU
+						Dev By: AMAL BABU
 					</a>
 				</div>
 			</>
@@ -21,8 +24,28 @@ function App() {
 
 	return (
 		<>
-			<SGPACard />
-			<ShowMyProfile />
+			<BrowserRouter>
+				<Navbar />
+				<Routes>
+					<Route
+						path="/"
+						element={<Home />}
+					/>
+					<Route
+						path="sgpa-sem-one"
+						element={<SemOneSGPACard />}
+					/>
+					<Route
+						path="sgpa-sem-two"
+						element={<SemTwoSGPACard />}
+					/>
+					<Route
+						path="cgpa-year-one"
+						element={<SemTwoSGPACard />}
+					/>
+				</Routes>
+				<ShowMyProfile/>
+			</BrowserRouter>
 		</>
 	);
 }

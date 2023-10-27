@@ -1,25 +1,26 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-const SGPACard = () => {
-	const { register, handleSubmit } = useForm();
+const SemTwoSGPACard = () => {
+  const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
 
 	const onSubmit = (data) => {
 		console.log(data);
 
 		// calculate  grade-point * course-credit
-		const math = calculateGP(parseFloat(data.math)) * parseFloat(4);
-		const os = calculateGP(parseFloat(data.os)) * parseFloat(4);
-		const ds = calculateGP(parseFloat(data.ds)) * parseFloat(3);
-		const cn = calculateGP(parseFloat(data.cn)) * parseFloat(3);
-		const da = calculateGP(parseFloat(data.da)) * parseFloat(4);
-		const dsLab = calculateGP(parseFloat(data.dslab)) * parseFloat(1.5);
-		const cnLab = calculateGP(parseFloat(data.cnlab)) * parseFloat(1.5);
-		const ipr = calculateGP(parseFloat(data.ipr)) * parseFloat(2);
+		const dbms = calculateGP(parseFloat(data.dbms)) * parseFloat(4);
+		const java = calculateGP(parseFloat(data.java)) * parseFloat(4);
+		const se = calculateGP(parseFloat(data.se)) * parseFloat(3);
+		const web = calculateGP(parseFloat(data.web)) * parseFloat(3);
+		const pe1 = calculateGP(parseFloat(data.pe1)) * parseFloat(4);
+		const pe2 = calculateGP(parseFloat(data.pe2)) * parseFloat(1.5);
+		const dbmsLab = calculateGP(parseFloat(data.dbmsLab)) * parseFloat(1.5);
+		const javaLab = calculateGP(parseFloat(data.javaLab)) * parseFloat(2);
+		const seminar = calculateGP(parseFloat(data.seminar)) * parseFloat(2);
 
 		//find sum
-		const sum = math + os + ds + cn + da + dsLab + cnLab + ipr;
+		const sum = dbms + java + se + web + pe1 + pe2 + dbmsLab + javaLab +seminar;
 		const result = sum / parseFloat(23);
 		console.log(result);
 		setSGPAResult(result);
@@ -47,7 +48,7 @@ const SGPACard = () => {
 	return (
 		<>
 			<div className="flex justify-center items-center ">
-				<div className="card w-auto bg-base-100 shadow-xl p-1 m-1">
+				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
 						<p className="text-start text-primary">SGPA calculator</p>
@@ -57,129 +58,134 @@ const SGPACard = () => {
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Mathematical foundation for computer applications
+											Database Management System
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="maths mark"
 										className="input input-bordered"
-										name="math"
-										id="math"
+										name="dbms"
+										id="dbms"
 										required
-										{...register("math")}
+										{...register("dbms")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Operating System Concepts
+											Object Oriented Programming Using Java
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="os mark"
 										className="input input-bordered"
-										name="os"
-										id="os"
+										name="java"
+										id="java"
 										required
-										{...register("os")}
+										{...register("java")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Data Structures with Algorithms
+											Software Engineering
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="ds mark"
 										className="input input-bordered"
-										name="ds"
-										id="ds"
+										name="se"
+										id="se"
 										required
-										{...register("ds")}
+										{...register("se")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Computer Networks
+											Web Technologies
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="cn mark"
 										className="input input-bordered"
-										name="cn"
-										id="cn"
+										name="web"
+										id="web"
 										required
-										{...register("cn")}
+										{...register("web")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Design and Analysis of Algorithms
+											Professional Elective 1 (ERP/UID/OT/DMBI/CG)
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="DAA mark"
 										className="input input-bordered"
-										name="da"
-										id="da"
+										name="pe1"
+										id="pe1"
 										required
-										{...register("da")}
+										{...register("pe1")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Data Structures with Algorithms Laboratory
+											Professional Elective 2 (MAD/AI/DOS/CNS/NLP)
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="DS Lab mark"
 										className="input input-bordered"
-										name="ds-lab"
-										id="ds-lab"
+										name="pe2"
+										id="pe2"
 										required
-										{...register("dslab")}
+										{...register("pe2")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Computer Networks Laboratory
+											DBMS Laboratory
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="CN Lab mark"
 										className="input input-bordered"
-										name="cn-lab"
-										id="cn-lab"
+										name="dbmsLab"
+										id="dbmsLab"
 										required
-										{...register("cnlab")}
+										{...register("dbmsLab")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Research Methodology and IPR
+											Java Programming Laboratory
 										</span>
 									</label>
 									<input
 										type="number"
-										placeholder="IPR mark"
 										className="input input-bordered"
-										name="ipr-lab"
-										id="ipr-lab"
+										name="javaLab"
+										id="javaLab"
 										required
-										{...register("ipr")}
+										{...register("javaLab")}
+									/>
+								</div>
+								<div className="form-control">
+									<label className="label">
+										<span className="label-text font-semibold">Seminar</span>
+									</label>
+									<input
+										type="number"
+										className="input input-bordered"
+										name="seminar"
+										id="seminar"
+										required
+										{...register("seminar")}
 									/>
 								</div>
 								{/* result */}
@@ -200,7 +206,7 @@ const SGPACard = () => {
 								)}
 								<div className="form-control  mt-2 p-3">
 									<input
-										className="btn btn-primary "
+										className="btn btn-neutral btn-active "
 										type="submit"
 										value="submit"
 									/>
@@ -212,6 +218,6 @@ const SGPACard = () => {
 			</div>
 		</>
 	);
-};
+}
 
-export default SGPACard;
+export default SemTwoSGPACard
