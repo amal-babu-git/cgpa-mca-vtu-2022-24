@@ -27,3 +27,4 @@ firebase.js
 firebase/
 firebase*
 build/
+userDataCollection/
