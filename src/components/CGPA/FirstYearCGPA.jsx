@@ -8,7 +8,6 @@ const FirstYearCGPA = () => {
 	const onSubmit = (data) => {
 		console.log(data);
 
-	
 		const semOneSGPA = parseFloat(data.sem1) 
 		const semTwoSGPA = parseFloat(data.sem2)
 		

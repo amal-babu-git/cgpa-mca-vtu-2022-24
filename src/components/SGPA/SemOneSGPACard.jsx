@@ -20,7 +20,7 @@ const SemOneSGPACard = () => {
 
 		//find sum
 		const sum = math + os + ds + cn + da + dsLab + cnLab + ipr;
-		const result = sum / parseFloat(23);
+		const result = sum / parseFloat(24);
 		console.log(result);
 		setSGPAResult(result);
 	};
