@@ -2,26 +2,27 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 
 const SemTwoSGPACard = () => {
-  const { register, handleSubmit } = useForm();
+	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
 
 	const onSubmit = (data) => {
 		console.log(data);
 
 		// calculate  grade-point * course-credit
-		const dbms = calculateGP(parseFloat(data.dbms)) * parseFloat(4);
-		const java = calculateGP(parseFloat(data.java)) * parseFloat(4);
-		const se = calculateGP(parseFloat(data.se)) * parseFloat(3);
-		const web = calculateGP(parseFloat(data.web)) * parseFloat(3);
-		const pe1 = calculateGP(parseFloat(data.pe1)) * parseFloat(4);
-		const pe2 = calculateGP(parseFloat(data.pe2)) * parseFloat(1.5);
-		const dbmsLab = calculateGP(parseFloat(data.dbmsLab)) * parseFloat(1.5);
+		const dbms = calculateGP(parseFloat(data.dbms)) * parseFloat(3);
+		const java = calculateGP(parseFloat(data.java)) * parseFloat(3);
+		const se = calculateGP(parseFloat(data.se)) * parseFloat(4);
+		const web = calculateGP(parseFloat(data.web)) * parseFloat(4);
+		const pe1 = calculateGP(parseFloat(data.pe1)) * parseFloat(3);
+		const pe2 = calculateGP(parseFloat(data.pe2)) * parseFloat(3);
+		const dbmsLab = calculateGP(parseFloat(data.dbmsLab)) * parseFloat(2);
 		const javaLab = calculateGP(parseFloat(data.javaLab)) * parseFloat(2);
 		const seminar = calculateGP(parseFloat(data.seminar)) * parseFloat(2);
 
 		//find sum
-		const sum = dbms + java + se + web + pe1 + pe2 + dbmsLab + javaLab +seminar;
-		const result = sum / parseFloat(23);
+		const sum =
+			dbms + java + se + web + pe1 + pe2 + dbmsLab + javaLab + seminar;
+		const result = sum / parseFloat(26);
 		console.log(result);
 		setSGPAResult(result);
 	};
@@ -218,6 +219,6 @@ const SemTwoSGPACard = () => {
 			</div>
 		</>
 	);
-}
+};
 
-export default SemTwoSGPACard
+export default SemTwoSGPACard;

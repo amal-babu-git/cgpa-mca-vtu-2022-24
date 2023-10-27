@@ -4,6 +4,7 @@ import Navbar from "./components/header/Navbar";
 import Home from "./components/home/home";
 import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
 import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
+import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
 
 function App() {
 	const ShowMyProfile = () => {
@@ -41,7 +42,7 @@ function App() {
 					/>
 					<Route
 						path="cgpa-year-one"
-						element={<SemTwoSGPACard />}
+						element={<FirstYearCGPA />}
 					/>
 				</Routes>
 				<ShowMyProfile/>
