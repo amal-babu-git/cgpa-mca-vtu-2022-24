@@ -1,9 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const SemTwoSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
+
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 
 	const onSubmit = (data) => {
 		console.log(data);
@@ -25,6 +30,13 @@ const SemTwoSGPACard = () => {
 		const result = sum / parseFloat(26);
 		console.log(result);
 		setSGPAResult(result);
+
+		setTimeout(() => {
+			document.getElementById("sgpa").focus();
+		}, 100);
+
+		// store this value to local storage, this will be used for calculate cgpa in cgpa form
+		localStorage.setItem("sem2", result.toFixed(4));
 	};
 
 	// function to calculate grade point
@@ -64,6 +76,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="dbms"
 										id="dbms"
@@ -79,6 +93,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="java"
 										id="java"
@@ -94,6 +110,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="se"
 										id="se"
@@ -109,6 +127,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="web"
 										id="web"
@@ -124,6 +144,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="pe1"
 										id="pe1"
@@ -139,6 +161,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="pe2"
 										id="pe2"
@@ -154,6 +178,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="dbmsLab"
 										id="dbmsLab"
@@ -169,6 +195,8 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="javaLab"
 										id="javaLab"
@@ -182,11 +210,21 @@ const SemTwoSGPACard = () => {
 									</label>
 									<input
 										type="number"
+										min={0}
+										max={100}
 										className="input input-bordered"
 										name="seminar"
 										id="seminar"
 										required
 										{...register("seminar")}
+									/>
+								</div>
+
+								<div className="form-control  mt-2 p-3">
+									<input
+										className="btn btn-neutral btn-active "
+										type="submit"
+										value="submit"
 									/>
 								</div>
 								{/* result */}
@@ -203,15 +241,14 @@ const SemTwoSGPACard = () => {
 											id="sgpa"
 											name="sgpa"
 										/>
+										<Link
+											className="btn btn-neutral btn-sm mt-2"
+											to={"/cgpa-year-one"}
+										>
+											Calculate CGPA
+										</Link>
 									</div>
 								)}
-								<div className="form-control  mt-2 p-3">
-									<input
-										className="btn btn-neutral btn-active "
-										type="submit"
-										value="submit"
-									/>
-								</div>
 							</form>
 						</div>
 					</div>

@@ -7,6 +7,7 @@ import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
 
 function App() {
+	
 	const ShowMyProfile = () => {
 		return (
 			<>
@@ -45,7 +46,7 @@ function App() {
 						element={<FirstYearCGPA />}
 					/>
 				</Routes>
-				<ShowMyProfile/>
+				<ShowMyProfile />
 			</BrowserRouter>
 		</>
 	);
