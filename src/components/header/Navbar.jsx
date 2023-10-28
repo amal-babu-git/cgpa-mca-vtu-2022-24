@@ -58,7 +58,7 @@ const Navbar = () => {
 				</div>
 				<div className="navbar-center">
 					<Link to={"/"} className="btn btn-ghost normal-case text-xl">
-						CSGPA Calculator MCA 2022-24
+						CGPA Calculator MCA 2022-24
 					</Link>
 				</div>
 				<div className="navbar-end">

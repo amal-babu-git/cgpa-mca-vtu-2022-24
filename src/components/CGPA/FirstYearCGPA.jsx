@@ -1,22 +1,31 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const FirstYearCGPA = () => {
 	const { register, handleSubmit } = useForm();
 	const [CGPAResult, setCGPAResult] = useState(0.0);
 
+	// checking, if sgpas are available in local storage
+	const sem1 = localStorage.getItem("sem1") ?? "";
+	const sem2 = localStorage.getItem("sem2") ?? "";
+
 	const onSubmit = (data) => {
 		console.log(data);
 
-		const semOneSGPA = parseFloat(data.sem1) 
-		const semTwoSGPA = parseFloat(data.sem2)
-		
-		const result = parseFloat(semOneSGPA*23+semTwoSGPA*26) / parseFloat(49);
+		const semOneSGPA = parseFloat(data.sem1);
+		const semTwoSGPA = parseFloat(data.sem2);
+
+		// (sem1_sgpa * total_credits_in_sem_1 + sem2_sgpa * total_credits_in_sem_2) / total_credits
+		const result =
+			parseFloat(semOneSGPA * 23 + semTwoSGPA * 26) / parseFloat(49);
 		console.log(result);
 		setCGPAResult(result);
+
+		setTimeout(() => {
+			document.getElementById("cgpa").focus();
+		}, 100);
 	};
-
-
 
 	return (
 		<>
@@ -38,10 +47,11 @@ const FirstYearCGPA = () => {
 										type="number"
 										min={0}
 										max={10}
-										step={0.01}
+										step={0.00001}
 										className="input input-bordered"
 										name="dbms"
 										id="dbms"
+										defaultValue={sem1}
 										required
 										{...register("sem1")}
 									/>
@@ -56,10 +66,11 @@ const FirstYearCGPA = () => {
 										type="number"
 										min={0}
 										max={10}
-										step={0.01}
+										step={0.00001}
 										className="input input-bordered"
 										name="java"
 										id="java"
+										defaultValue={sem2}
 										required
 										{...register("sem2")}
 									/>
@@ -76,8 +87,8 @@ const FirstYearCGPA = () => {
 											value={CGPAResult}
 											className="input input-bordered border-primary font-semibold"
 											readOnly
-											id="sgpa"
-											name="sgpa"
+											id="cgpa"
+											name="cgpa"
 										/>
 									</div>
 								)}
@@ -87,6 +98,27 @@ const FirstYearCGPA = () => {
 										type="submit"
 										value="submit"
 									/>
+								</div>
+								<div>
+									<div className="font-normal">
+										<span className="text-red-500">
+											<ul>Alert</ul>
+										</span>
+										<p>
+											Please calculate your semester GPAs before proceeding. If
+											you don&apos;t know your first or second semester SGPA,
+											please go back and calculate them first. Once you have the
+											SGPAs for each semester, you can come back here and
+											calculate your overall CGPA
+										</p>
+										<Link
+											className="link-primary btn font-semibold me-1 ms-1"
+											to={"/"}
+										>
+											Go Back
+										</Link>
+										<span>to calculate SGPAs</span>
+									</div>
 								</div>
 							</form>
 						</div>

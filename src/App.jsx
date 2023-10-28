@@ -7,7 +7,6 @@ import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
 
 function App() {
-
 	
 	const ShowMyProfile = () => {
 		return (

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
+import { Link } from "react-router-dom";
 
 const SemOneSGPACard = () => {
 	const { register, handleSubmit } = useForm();
@@ -23,6 +24,10 @@ const SemOneSGPACard = () => {
 		const result = sum / parseFloat(24);
 		console.log(result);
 		setSGPAResult(result);
+		document.getElementById("sgpa").focus();
+
+		// store this value to local storage, this will be used for calculate cgpa in cgpa form
+		localStorage.setItem("sem1", result.toFixed(4));
 	};
 
 	// function to calculate grade point
@@ -182,6 +187,14 @@ const SemOneSGPACard = () => {
 										{...register("ipr")}
 									/>
 								</div>
+
+								<div className="form-control  mt-2 p-3">
+									<input
+										className="btn btn-neutral "
+										type="submit"
+										value="submit"
+									/>
+								</div>
 								{/* result */}
 								{SGPAResult > 0 && (
 									<div className="form-control">
@@ -196,15 +209,14 @@ const SemOneSGPACard = () => {
 											id="sgpa"
 											name="sgpa"
 										/>
+										<Link
+											className="btn btn-neutral btn-sm mt-2"
+											to={"/sgpa-sem-two"}
+										>
+											Calculate II<sup>nd</sup> Sem SGPA
+										</Link>
 									</div>
 								)}
-								<div className="form-control  mt-2 p-3">
-									<input
-										className="btn btn-primary "
-										type="submit"
-										value="submit"
-									/>
-								</div>
 							</form>
 						</div>
 					</div>
