@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const FirstYearCGPA = () => {
 	const { register, handleSubmit } = useForm();
 	const [CGPAResult, setCGPAResult] = useState(0.0);
+
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 
 	// checking, if sgpas are available in local storage
 	const sem1 = localStorage.getItem("sem1") ?? "";

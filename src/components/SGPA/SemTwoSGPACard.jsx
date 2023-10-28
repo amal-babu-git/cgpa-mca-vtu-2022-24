@@ -1,10 +1,14 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
 const SemTwoSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
+
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 
 	const onSubmit = (data) => {
 		console.log(data);
