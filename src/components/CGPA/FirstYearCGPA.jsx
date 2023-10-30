@@ -113,8 +113,9 @@ const FirstYearCGPA = () => {
 											you don&apos;t know your first or second semester SGPA,
 											please go back and calculate them first. Once you have the
 											SGPAs for each semester, you can come back here and
-											calculate your overall CGPA
+											calculate your overall CGPA.
 										</p>
+
 										<Link
 											className="link-primary btn font-semibold me-1 ms-1"
 											to={"/"}
@@ -122,6 +123,9 @@ const FirstYearCGPA = () => {
 											Go Back
 										</Link>
 										<span>to calculate SGPAs</span>
+										<p className="underline">
+											Do not use this app to calculate CGPA if you are failed in any subject.
+										</p>
 									</div>
 								</div>
 							</form>
