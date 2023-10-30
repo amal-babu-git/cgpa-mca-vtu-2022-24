@@ -15,6 +15,9 @@ const Navbar = () => {
 	const onClickFirstYearCGPA = () => {
 		navigate("/cgpa-year-one");
 	};
+	const onClickPrivacyPolicy = () => {
+		navigate("/privacy-policy");
+	};
 
 	return (
 		<>
@@ -52,6 +55,9 @@ const Navbar = () => {
 							</li>
 							<li>
 								<a onClick={onClickFirstYearCGPA}>CGPA OF FIRST YEAR</a>
+							</li>
+							<li>
+								<a onClick={onClickPrivacyPolicy}>Terms and Conditions & Privacy Policy</a>
 							</li>
 						</ul>
 					</div>

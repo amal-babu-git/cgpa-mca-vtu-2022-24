@@ -5,24 +5,12 @@ import Home from "./components/home/home";
 import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
 import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
+import Footer from "./components/footer/Footer";
+import PrivacyP from "./components/privacy/PrivacyP";
 
 function App() {
 	
-	const ShowMyProfile = () => {
-		return (
-			<>
-				<div className="text-end">
-					<a
-						className="btn btn-link"
-						href="http://www.github.com/amal-babu-git"
-						// target="_blank"
-					>
-						Dev By: AMAL BABU
-					</a>
-				</div>
-			</>
-		);
-	};
+	
 
 	return (
 		<>
@@ -45,8 +33,13 @@ function App() {
 						path="cgpa-year-one"
 						element={<FirstYearCGPA />}
 					/>
+					<Route
+						path="privacy-policy"
+						element={<PrivacyP />}
+					/>
+					
 				</Routes>
-				<ShowMyProfile />
+				<Footer/>
 			</BrowserRouter>
 		</>
 	);
