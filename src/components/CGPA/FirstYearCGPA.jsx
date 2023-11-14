@@ -22,7 +22,7 @@ const FirstYearCGPA = () => {
 
 		// (sem1_sgpa * total_credits_in_sem_1 + sem2_sgpa * total_credits_in_sem_2) / total_credits
 		const result =
-			parseFloat(semOneSGPA * 23 + semTwoSGPA * 26) / parseFloat(49);
+			parseFloat(semOneSGPA * 24 + semTwoSGPA * 26) / parseFloat(50);
 		console.log(result);
 		setCGPAResult(result);
 
