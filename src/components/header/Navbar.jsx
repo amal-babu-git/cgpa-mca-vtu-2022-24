@@ -57,14 +57,19 @@ const Navbar = () => {
 								<a onClick={onClickFirstYearCGPA}>CGPA OF FIRST YEAR</a>
 							</li>
 							<li>
-								<a onClick={onClickPrivacyPolicy}>Terms and Conditions & Privacy Policy</a>
+								<a onClick={onClickPrivacyPolicy}>
+									Terms and Conditions & Privacy Policy
+								</a>
 							</li>
 						</ul>
 					</div>
 				</div>
 				<div className="navbar-center">
-					<Link to={"/"} className="btn btn-ghost normal-case text-xl">
-						CGPA Calculator MCA 2022-24
+					<Link
+						to={"/"}
+						className="btn btn-ghost normal-case text-xl"
+					>
+						<h1>CGPA Calculator MCA 2022-24</h1>
 					</Link>
 				</div>
 				<div className="navbar-end">

@@ -1,6 +1,5 @@
-
 const PrivacyP = () => {
-  return (
+	return (
 		<div className="mt-4 font-mono text-justify">
 			<div className="container mx-auto p-4">
 				{/* About */}
@@ -58,18 +57,15 @@ const PrivacyP = () => {
 				<p className="mt-2 text-gray-800">
 					This application does not collect or store any personal user
 					information by default. If you use the Report Issue feature,
-					additional data is sent to help diagnose the problem,{" "}
-					<mark>
-						including: IP address and associated metadata, Browser type,
-						version, Device operating system details
-					</mark>
-					This information is used only for investigating bugs and will not be
-					shared or used for any other purpose. It is not connected to
-					individual identities.
+					additional data is sent to help diagnose the problem, including: IP
+					address and associated metadata, Browser type, version, Device
+					operating system details This information is used only for
+					investigating bugs and will not be shared or used for any other
+					purpose. It is not connected to individual identities.
 				</p>
 			</div>
 		</div>
 	);
-}
+};
 
-export default PrivacyP
+export default PrivacyP;
