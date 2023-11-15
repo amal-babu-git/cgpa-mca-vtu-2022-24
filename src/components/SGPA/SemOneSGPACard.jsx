@@ -13,13 +13,13 @@ const SemOneSGPACard = () => {
 		console.log(data);
 
 		// calculate  grade-point * course-credit
-		const math = calculateGP(parseFloat(data.math)) * parseFloat(4);
+		const math = calculateGP(parseFloat(data.math)) * parseFloat(3);
 		const os = calculateGP(parseFloat(data.os)) * parseFloat(4);
-		const ds = calculateGP(parseFloat(data.ds)) * parseFloat(3);
+		const ds = calculateGP(parseFloat(data.ds)) * parseFloat(4);
 		const cn = calculateGP(parseFloat(data.cn)) * parseFloat(3);
 		const da = calculateGP(parseFloat(data.da)) * parseFloat(4);
-		const dsLab = calculateGP(parseFloat(data.dslab)) * parseFloat(1.5);
-		const cnLab = calculateGP(parseFloat(data.cnlab)) * parseFloat(1.5);
+		const dsLab = calculateGP(parseFloat(data.dslab)) * parseFloat(2);
+		const cnLab = calculateGP(parseFloat(data.cnlab)) * parseFloat(2);
 		const ipr = calculateGP(parseFloat(data.ipr)) * parseFloat(2);
 
 		//find sum
