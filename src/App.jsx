@@ -4,14 +4,14 @@ import Navbar from "./components/header/Navbar";
 import Home from "./components/home/home";
 import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
 import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
-import FirstYearCGPA from "./components/CGPA/FirstYearCGPA";
+import CGPA from "./components/CGPA/CGPA";
 import Footer from "./components/footer/Footer";
 import PrivacyP from "./components/privacy/PrivacyP";
+import SemThreeSGPACard from "./components/SGPA/semThreeSGPACard";
+import ReportPDF from "./components/CGPA/ReportPDF";
 
 function App() {
 	
-	
-
 	return (
 		<>
 			<BrowserRouter>
@@ -30,12 +30,21 @@ function App() {
 						element={<SemTwoSGPACard />}
 					/>
 					<Route
+						path="sgpa-sem-three"
+						element={<SemThreeSGPACard />}
+					/>
+					
+					<Route
 						path="cgpa-year-one"
-						element={<FirstYearCGPA />}
+						element={<CGPA />}
 					/>
 					<Route
 						path="privacy-policy"
 						element={<PrivacyP />}
+					/>
+					<Route
+						path="report"
+						element={<ReportPDF />}
 					/>
 					
 				</Routes>

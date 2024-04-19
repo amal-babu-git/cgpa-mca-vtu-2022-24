@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const FirstYearCGPA = () => {
+const CGPA = () => {
 	const { register, handleSubmit } = useForm();
 	const [CGPAResult, setCGPAResult] = useState(0.0);
 
@@ -13,18 +13,24 @@ const FirstYearCGPA = () => {
 	// checking, if sgpas are available in local storage
 	const sem1 = localStorage.getItem("sem1") ?? "";
 	const sem2 = localStorage.getItem("sem2") ?? "";
+	const sem3 = localStorage.getItem("sem3") ?? "";
 
 	const onSubmit = (data) => {
 		console.log(data);
 
 		const semOneSGPA = parseFloat(data.sem1);
 		const semTwoSGPA = parseFloat(data.sem2);
+		const semThreeSGPA = parseFloat(data.sem3);
 
 		// (sem1_sgpa * total_credits_in_sem_1 + sem2_sgpa * total_credits_in_sem_2) / total_credits
 		const result =
-			parseFloat(semOneSGPA * 24 + semTwoSGPA * 26) / parseFloat(50);
+			parseFloat(semOneSGPA * 24 + semTwoSGPA * 26 + semThreeSGPA * 26) /
+			parseFloat(76);
 		console.log(result);
 		setCGPAResult(result);
+
+		// store cgpa to local storage
+		localStorage.setItem("cgpa", result.toFixed(4));
 
 		setTimeout(() => {
 			document.getElementById("cgpa").focus();
@@ -44,7 +50,7 @@ const FirstYearCGPA = () => {
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											ENTER SEM I SGPA
+											ENTER 1<sup>st</sup> SEM SGPA
 										</span>
 									</label>
 									<input
@@ -63,7 +69,7 @@ const FirstYearCGPA = () => {
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											ENTER SEM II SGPA
+											ENTER 2<sup>rd</sup> SEM SGPA
 										</span>
 									</label>
 									<input
@@ -77,6 +83,25 @@ const FirstYearCGPA = () => {
 										defaultValue={sem2}
 										required
 										{...register("sem2")}
+									/>
+								</div>
+								<div className="form-control">
+									<label className="label">
+										<span className="label-text font-semibold">
+											ENTER 3<sup>rd</sup> SEM SGPA
+										</span>
+									</label>
+									<input
+										type="number"
+										min={0}
+										max={10}
+										step={0.00001}
+										className="input input-bordered"
+										name="java"
+										id="java"
+										defaultValue={sem3}
+										required
+										{...register("sem3")}
 									/>
 								</div>
 
@@ -124,7 +149,8 @@ const FirstYearCGPA = () => {
 										</Link>
 										<span>to calculate SGPAs</span>
 										<p className="underline">
-											Do not use this app to calculate CGPA if you are failed in any subject.
+											Do not use this app to calculate CGPA if you are failed in
+											any subject.
 										</p>
 									</div>
 								</div>
@@ -137,4 +163,4 @@ const FirstYearCGPA = () => {
 	);
 };
 
-export default FirstYearCGPA;
+export default CGPA;

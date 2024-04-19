@@ -11,6 +11,10 @@ const Home = () => {
 	const onClickSemTwo = () => {
 		navigate("/sgpa-sem-two");
 	};
+	// on click to calculate SGPA sem 3
+	const onClickSemThree = () => {
+		navigate("/sgpa-sem-three");
+	};
 	// on click to calculate first year CGPA
 	const onClickFirstYearCGPA = () => {
 		navigate("/cgpa-year-one");
@@ -33,6 +37,14 @@ const Home = () => {
 							onClick={onClickSemTwo}
 						>
 							SEM II SGPA
+						</button>
+					</div>
+					<div className="mb-2 p-1">
+						<button
+							className="btn btn-lg  rounded-full  btn-active btn-neutral"
+							onClick={onClickSemThree}
+						>
+							SEM III SGPA
 						</button>
 					</div>
 					<div className="mb-2 p-1">

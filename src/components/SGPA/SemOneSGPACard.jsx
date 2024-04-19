@@ -31,6 +31,7 @@ const SemOneSGPACard = () => {
 
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
 		localStorage.setItem("sem1", result.toFixed(4));
+		localStorage.setItem("semOneMarks", JSON.stringify(data));
 	};
 
 	// function to calculate grade point

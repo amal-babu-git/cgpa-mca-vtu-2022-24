@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { Link } from "react-router-dom";
 
-const SemTwoSGPACard = () => {
+const SemThreeSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
 
@@ -14,19 +14,18 @@ const SemTwoSGPACard = () => {
 		console.log(data);
 
 		// calculate  grade-point * course-credit
-		const dbms = calculateGP(parseFloat(data.dbms)) * parseFloat(3);
-		const java = calculateGP(parseFloat(data.java)) * parseFloat(3);
-		const se = calculateGP(parseFloat(data.se)) * parseFloat(4);
-		const web = calculateGP(parseFloat(data.web)) * parseFloat(4);
-		const pe1 = calculateGP(parseFloat(data.pe1)) * parseFloat(3);
-		const pe2 = calculateGP(parseFloat(data.pe2)) * parseFloat(3);
-		const dbmsLab = calculateGP(parseFloat(data.dbmsLab)) * parseFloat(2);
-		const javaLab = calculateGP(parseFloat(data.javaLab)) * parseFloat(2);
-		const seminar = calculateGP(parseFloat(data.seminar)) * parseFloat(2);
+		const dap = calculateGP(parseFloat(data.dap)) * parseFloat(3);
+		const iot = calculateGP(parseFloat(data.iot)) * parseFloat(3);
+		const pe3 = calculateGP(parseFloat(data.pe3)) * parseFloat(3);
+		const pe4 = calculateGP(parseFloat(data.pe4)) * parseFloat(3);
+		const pp1 = calculateGP(parseFloat(data.pp1)) * parseFloat(2);
+		const dapLab = calculateGP(parseFloat(data.dapLab)) * parseFloat(2);
+		const iotLab = calculateGP(parseFloat(data.iotLab)) * parseFloat(2);
+		const sp = calculateGP(parseFloat(data.sp)) * parseFloat(2);
+		const internship = calculateGP(parseFloat(data.internship)) * parseFloat(6);
 
 		//find sum
-		const sum =
-			dbms + java + se + web + pe1 + pe2 + dbmsLab + javaLab + seminar;
+		const sum = dap + iot + pe3 + pe4 + pp1 + dapLab + iotLab + sp + internship;
 		const result = sum / parseFloat(26);
 		console.log(result);
 		setSGPAResult(result);
@@ -36,12 +35,13 @@ const SemTwoSGPACard = () => {
 		}, 100);
 
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
-		localStorage.setItem("sem2", result.toFixed(4));
-		localStorage.setItem("semTwoMarks", JSON.stringify(data));
+		localStorage.setItem("sem3", result.toFixed(4));
+		localStorage.setItem("semThreeMarks", JSON.stringify(data));
 	};
 
+	//#Calculate Grade point
 	// function to calculate grade point
-	const calculateGP = (mark) => {
+	function calculateGP(mark) {
 		if (mark >= 90 && mark <= 100) {
 			return 10;
 		} else if (mark >= 80 && mark <= 89) {
@@ -57,22 +57,26 @@ const SemTwoSGPACard = () => {
 		} else {
 			return 0;
 		}
-	};
+	}
 
 	return (
 		<>
-			<div className="flex justify-center items-center ">
+			<div
+				className="flex justify-center items-center  "
+			>
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
-						<p className="text-start text-primary">SGPA calculator</p>
+						<p className="text-start text-primary font-semibold">
+							3<sup>rd</sup> SGPA calculator
+						</p>
 
 						<div className="card-body text-start w-96">
 							<form onSubmit={handleSubmit(onSubmit)}>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Database Management System
+											Data Analytics Using Python (22MCA31)
 										</span>
 									</label>
 									<input
@@ -80,16 +84,16 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="dbms"
-										id="dbms"
+										name="dap"
+										id="dap"
 										required
-										{...register("dbms")}
+										{...register("dap")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Object Oriented Programming Using Java
+											Internet of Things (22MCA32)
 										</span>
 									</label>
 									<input
@@ -97,16 +101,19 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="java"
-										id="java"
+										name="iot"
+										id="iot"
 										required
-										{...register("java")}
+										{...register("iot")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Software Engineering
+											PE3 22MCA33<span className="text-blue-600">X</span> (Block
+											chain Technology,{" "}
+											<span className="text-blue-700">Cloud Computing</span>,
+											Digital Marketing, OOMD, NoSQL)
 										</span>
 									</label>
 									<input
@@ -114,16 +121,20 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="se"
-										id="se"
+										name="pe3"
+										id="pe3"
 										required
-										{...register("se")}
+										{...register("pe3")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Web Technologies
+											PE4 22MCA34<span className="text-blue-600">X</span> (
+											<span className="text-blue-700">
+												Advanced Java and J2EE
+											</span>
+											, Dot Net, Knowledge Engineering, Software Testing, VR)
 										</span>
 									</label>
 									<input
@@ -131,16 +142,16 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="web"
-										id="web"
+										name="pe4"
+										id="pe4"
 										required
-										{...register("web")}
+										{...register("pe4")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Professional Elective 1 (ERP/UID/OT/DMBI/CG)
+											Project Work Phase 1 (22MCAL35 )
 										</span>
 									</label>
 									<input
@@ -148,16 +159,34 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="pe1"
-										id="pe1"
+										name="pp1"
+										id="pp1"
 										required
-										{...register("pe1")}
+										{...register("pp1")}
+									/>
+								</div>
+
+								<div className="form-control">
+									<label className="label">
+										<span className="label-text font-semibold">
+											Data Analytics Lab with Mini-project (22MCAL36)
+										</span>
+									</label>
+									<input
+										type="number"
+										min={0}
+										max={100}
+										className="input input-bordered"
+										name="dapLab"
+										id="dapLab"
+										required
+										{...register("dapLab")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Professional Elective 2 (MAD/AI/DOS/CNS/NLP)
+											IoT Laboratory with Mini Project (22MCAL37)
 										</span>
 									</label>
 									<input
@@ -165,16 +194,16 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="pe2"
-										id="pe2"
+										name="iotLab"
+										id="iotLab"
 										required
-										{...register("pe2")}
+										{...register("iotLab")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											DBMS Laboratory
+											Societal Project (22MCAL38)
 										</span>
 									</label>
 									<input
@@ -182,16 +211,16 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="dbmsLab"
-										id="dbmsLab"
+										name="sp"
+										id="sp"
 										required
-										{...register("dbmsLab")}
+										{...register("sp")}
 									/>
 								</div>
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											Java Programming Laboratory
+											Internship (22MCA39)
 										</span>
 									</label>
 									<input
@@ -199,25 +228,10 @@ const SemTwoSGPACard = () => {
 										min={0}
 										max={100}
 										className="input input-bordered"
-										name="javaLab"
-										id="javaLab"
+										name="internship"
+										id="internship"
 										required
-										{...register("javaLab")}
-									/>
-								</div>
-								<div className="form-control">
-									<label className="label">
-										<span className="label-text font-semibold">Seminar</span>
-									</label>
-									<input
-										type="number"
-										min={0}
-										max={100}
-										className="input input-bordered"
-										name="seminar"
-										id="seminar"
-										required
-										{...register("seminar")}
+										{...register("internship")}
 									/>
 								</div>
 
@@ -228,6 +242,15 @@ const SemTwoSGPACard = () => {
 										value="submit"
 									/>
 								</div>
+
+								{/* <div className="form-control  mt-2 p-3">
+									<button
+										className="btn"
+										onClick={() => toPDF()}
+									>
+										Download PDF
+									</button>
+								</div> */}
 								{/* result */}
 								{SGPAResult > 0 && (
 									<div className="form-control">
@@ -259,4 +282,4 @@ const SemTwoSGPACard = () => {
 	);
 };
 
-export default SemTwoSGPACard;
+export default SemThreeSGPACard;
