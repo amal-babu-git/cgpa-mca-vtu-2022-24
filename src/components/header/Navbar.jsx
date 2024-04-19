@@ -56,11 +56,11 @@ const Navbar = () => {
 							<li>
 								<a onClick={onClickFirstYearCGPA}>CGPA OF FIRST YEAR</a>
 							</li>
-							<li>
+							{/* <li>
 								<a onClick={onClickPrivacyPolicy}>
 									Terms and Conditions & Privacy Policy
 								</a>
-							</li>
+							</li> */}
 						</ul>
 					</div>
 				</div>

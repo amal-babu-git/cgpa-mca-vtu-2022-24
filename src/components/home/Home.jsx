@@ -52,7 +52,7 @@ const Home = () => {
 							className="btn btn-lg  rounded-full  btn-active btn-neutral"
 							onClick={onClickFirstYearCGPA}
 						>
-							I<sup>st</sup> Year CGPA
+							Calculate CGPA
 						</button>
 					</div>
 				</div>

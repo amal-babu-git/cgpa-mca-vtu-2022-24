@@ -1,5 +1,6 @@
-import { usePDF } from "react-to-pdf";
 import { useEffect, useState } from "react";
+import { useForm } from "react-hook-form";
+import generatePDF, { Resolution, Margin, usePDF } from "react-to-pdf";
 
 const ReportPDF = () => {
 	const [semOneMarks, setSemOneMarks] = useState("");
@@ -9,6 +10,9 @@ const ReportPDF = () => {
 	const [semTwoSGPA, setSemTwoSGPA] = useState("");
 	const [semThreeSGPA, setSemThreeSGPA] = useState("");
 	const [CGPA, setCGPA] = useState("");
+
+	const [studentDetails, setStudentDetails] = useState({});
+	const { register, handleSubmit } = useForm();
 
 	const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
 
@@ -24,38 +28,96 @@ const ReportPDF = () => {
 		setCGPA(JSON.parse(localStorage.getItem("cgpa")));
 	}, []);
 
+
+	const options = {
+		// default is `save`
+		// method: "save",
+		// default is Resolution.MEDIUM = 3, which should be enough, higher values
+		// increases the image quality but also the size of the PDF, so be careful
+		// using values higher than 10 when having multiple pages generated, it
+		// might cause the page to crash or hang.
+		resolution: Resolution.HIGH,
+		page: {
+			// margin is in MM, default is Margin.NONE = 0
+			margin: Margin.MEDIUM,
+			// default is 'A4'
+			format: "A4",
+			// default is 'portrait'
+			orientation: "portrait",
+		},
+		
+	};
+
+	const onClickDownload = (data) => {
+		setStudentDetails(data);
+		setTimeout(() => {
+			generatePDF(targetRef, options)
+		}, 1000);
+		
+	};
+
+
+
 	return (
-		<div className="p-10">
-			<div className="form-control  mt-2 p-3">
-				<button
-					className="btn"
-					onClick={() => toPDF()}
+		<div className="p-2 mt-10">
+			<div className="p-2">
+				{/* Name and roll number */}
+				<form
+					className="form-control font-semibold"
+					onSubmit={handleSubmit(onClickDownload)}
 				>
-					Download PDF
-				</button>
+					<label className="input input-bordered flex mb-2 items-center gap-2">
+						Name
+						<input
+							type="text"
+							required
+							className="grow text-blue-950"
+							placeholder="Enter your name"
+							{...register("name")}
+						/>
+					</label>
+					<label className="input input-bordered flex items-center gap-2">
+						USN
+						<input
+							type="text"
+							required
+							className="grow text-blue-950"
+							placeholder="Enter USN"
+							{...register("usn")}
+						/>
+					</label>
+					<input
+						type="submit"
+						className="btn mt-1 mb-1"
+						value={"Download PDF"}
+					/>
+				</form>
 			</div>
-			<div ref={targetRef}>
+			<div
+				ref={targetRef}
+			>
 				<div className="m-1">
 					<div className="overflow-x-auto">
-						<div className="p-2">
-							<div className="form-control font-semibold">
-								<label className="input input-bordered flex mb-2 items-center gap-2">
-									Name
-									<input
-										type="text"
-										className="grow text-blue-950"
-										placeholder="Enter your name"
-									/>
-								</label>
-								<label className="input input-bordered flex items-center gap-2">
-									USN
-									<input
-										type="text"
-										className="grow text-blue-950"
-										placeholder="Enter USN"
-									/>
-								</label>
-							</div>
+						<div className="form-control">
+							<label className="input font-semibold  flex items-center gap-2">
+								Name
+								<p
+									type="text"
+									className="p-1 text-amber-900"
+									
+								>
+									{studentDetails?.name}
+								</p>
+							</label>
+							<label className="input font-semibold  flex items-center gap-2">
+								USN
+								<p
+									type="text"
+									className="p-1 text-amber-900"
+								>
+									{studentDetails?.usn}
+								</p>
+							</label>
 						</div>
 						<h3 className="font-mono font-semibold text-blue-700 text-lg">
 							Semester I
@@ -74,16 +136,17 @@ const ReportPDF = () => {
 							<tbody>
 								{/* TODO: */}
 								{/* row 1 */}
-								{Object.entries(semOneMarks).map(([key, value]) => (
-									<tr
-										key={key}
-										className="bg-base-200"
-									>
-										<td></td>
-										<th>{key.toUpperCase()}</th>
-										<td>{value ?? "N/A"}</td>
-									</tr>
-								))}
+								{semOneMarks !== null &&
+									Object.entries(semOneMarks).map(([key, value]) => (
+										<tr
+											key={key}
+											className="bg-base-200"
+										>
+											<td></td>
+											<th>{key.toUpperCase()}</th>
+											<td>{value ?? "N/A"}</td>
+										</tr>
+									))}
 
 								<tr className="bg-zinc-200">
 									<td></td>
@@ -113,16 +176,17 @@ const ReportPDF = () => {
 							<tbody>
 								{/* TODO: */}
 								{/* row 1 */}
-								{Object.entries(semTwoMarks).map(([key, value]) => (
-									<tr
-										key={key}
-										className="bg-base-200"
-									>
-										<td></td>
-										<th>{key.toUpperCase()}</th>
-										<td>{value ?? "N/A"}</td>
-									</tr>
-								))}
+								{semTwoMarks !== null &&
+									Object.entries(semTwoMarks).map(([key, value]) => (
+										<tr
+											key={key}
+											className="bg-base-200"
+										>
+											<td></td>
+											<th>{key.toUpperCase()}</th>
+											<td>{value ?? "N/A"}</td>
+										</tr>
+									))}
 
 								<tr className="bg-zinc-200">
 									<td></td>
@@ -152,16 +216,17 @@ const ReportPDF = () => {
 							<tbody>
 								{/* TODO: */}
 								{/* row 1 */}
-								{Object.entries(semThreeMarks).map(([key, value]) => (
-									<tr
-										key={key}
-										className="bg-base-200"
-									>
-										<td></td>
-										<th>{key.toUpperCase()}</th>
-										<td>{value ?? "N/A"}</td>
-									</tr>
-								))}
+								{semThreeMarks !== null &&
+									Object.entries(semThreeMarks).map(([key, value]) => (
+										<tr
+											key={key}
+											className="bg-base-200"
+										>
+											<td></td>
+											<th>{key.toUpperCase()}</th>
+											<td>{value ?? "N/A"}</td>
+										</tr>
+									))}
 
 								<tr className="bg-zinc-200">
 									<td></td>
@@ -198,6 +263,9 @@ const ReportPDF = () => {
 						</table>
 					</div>
 				</div>
+				<p className="bg-base-300 mt-10 font-mono p-3  text-gray-500">
+					CGPA Calculator MCA (VTU) 2022-24 Developed by amal-babu-git
+				</p>
 			</div>
 		</div>
 	);

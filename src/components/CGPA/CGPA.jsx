@@ -35,6 +35,11 @@ const CGPA = () => {
 		setTimeout(() => {
 			document.getElementById("cgpa").focus();
 		}, 100);
+
+		// save to local storage this will helps for only print sgpas in report download page
+		localStorage.setItem("sem1", semOneSGPA.toFixed(4));
+		localStorage.setItem("sem2", semTwoSGPA.toFixed(4));
+		localStorage.setItem("sem3", semThreeSGPA.toFixed(4));
 	};
 
 	return (
@@ -119,6 +124,15 @@ const CGPA = () => {
 											id="cgpa"
 											name="cgpa"
 										/>
+										<div className="form-control  mt-2 p-3">
+											<Link
+												className="btn"
+												to={"/report"}
+											>
+												{" "}
+												Download Result
+											</Link>
+										</div>
 									</div>
 								)}
 								<div className="form-control  mt-2 p-3">
@@ -135,10 +149,10 @@ const CGPA = () => {
 										</span>
 										<p>
 											Please calculate your semester GPAs before proceeding. If
-											you don&apos;t know your first or second semester SGPA,
-											please go back and calculate them first. Once you have the
-											SGPAs for each semester, you can come back here and
-											calculate your overall CGPA.
+											you don&apos;t know your first, second or third semester
+											SGPA, please go back and calculate them first. Once you
+											have the SGPAs for each semester, you can come back here
+											and calculate your overall CGPA.
 										</p>
 
 										<Link
