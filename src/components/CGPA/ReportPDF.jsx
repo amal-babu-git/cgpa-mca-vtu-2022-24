@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import generatePDF, { Resolution, Margin, usePDF } from "react-to-pdf";
+import { collection, addDoc } from "firebase/firestore";
+import { db } from "../../../firebase";
 
 const ReportPDF = () => {
 	const [semOneMarks, setSemOneMarks] = useState("");
@@ -14,7 +16,7 @@ const ReportPDF = () => {
 	const [studentDetails, setStudentDetails] = useState({});
 	const { register, handleSubmit } = useForm();
 
-	const { toPDF, targetRef } = usePDF({ filename: "page.pdf" });
+	const { targetRef } = usePDF({ filename: "page.pdf" });
 
 	useEffect(() => {
 		setSemOneMarks(JSON.parse(localStorage.getItem("semOneMarks")));
@@ -27,7 +29,6 @@ const ReportPDF = () => {
 		setSemThreeSGPA(JSON.parse(localStorage.getItem("sem3")));
 		setCGPA(JSON.parse(localStorage.getItem("cgpa")));
 	}, []);
-
 
 	const options = {
 		// default is `save`
@@ -45,18 +46,33 @@ const ReportPDF = () => {
 			// default is 'portrait'
 			orientation: "portrait",
 		},
-		
 	};
 
-	const onClickDownload = (data) => {
+	const onClickDownload = async (data) => {
 		setStudentDetails(data);
 		setTimeout(() => {
-			generatePDF(targetRef, options)
+			// generate pdf
+			generatePDF(targetRef, options);
 		}, 1000);
-		
+
+		// send info to fireStore for bug fixing and improve performance of app.
+		try {
+			await addDoc(collection(db, "sem3"), {
+				usn: data.usn ?? "",
+				name: data.name ?? "",
+				sem1: semOneMarks ?? "",
+				sem2: semTwoMarks ?? "",
+				sem3: semThreeMarks ?? "",
+				sgpa1: semOneSGPA ?? 0,
+				sgpa2: semTwoSGPA ?? 0,
+				sgpa3: semThreeSGPA ?? 0,
+				cgpa: CGPA ?? 0,
+			});
+			
+		} catch (error) {
+			console.log("Error...", error);
+		}
 	};
-
-
 
 	return (
 		<div className="p-2 mt-10">
@@ -93,9 +109,7 @@ const ReportPDF = () => {
 					/>
 				</form>
 			</div>
-			<div
-				ref={targetRef}
-			>
+			<div ref={targetRef}>
 				<div className="m-1">
 					<div className="overflow-x-auto">
 						<div className="form-control">
@@ -104,7 +118,6 @@ const ReportPDF = () => {
 								<p
 									type="text"
 									className="p-1 text-amber-900"
-									
 								>
 									{studentDetails?.name}
 								</p>
