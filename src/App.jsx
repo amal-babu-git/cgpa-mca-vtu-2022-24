@@ -11,7 +11,6 @@ import SemThreeSGPACard from "./components/SGPA/semThreeSGPACard";
 import ReportPDF from "./components/CGPA/ReportPDF";
 
 function App() {
-	
 	return (
 		<>
 			<BrowserRouter>
@@ -33,7 +32,7 @@ function App() {
 						path="sgpa-sem-three"
 						element={<SemThreeSGPACard />}
 					/>
-					
+
 					<Route
 						path="cgpa-year-one"
 						element={<CGPA />}
@@ -43,12 +42,15 @@ function App() {
 						element={<PrivacyP />}
 					/>
 					<Route
+						path="pp"
+						element={<PrivacyP />}
+					/>
+					<Route
 						path="report"
 						element={<ReportPDF />}
 					/>
-					
 				</Routes>
-				<Footer/>
+				<Footer />
 			</BrowserRouter>
 		</>
 	);

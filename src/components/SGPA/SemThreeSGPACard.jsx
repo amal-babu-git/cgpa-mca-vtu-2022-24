@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const SemThreeSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
+	const semThreeMarks = JSON.parse(localStorage.getItem("semThreeMarks", ""));
 
 	useEffect(() => {
 		window.scroll(0, 0);
@@ -30,13 +31,13 @@ const SemThreeSGPACard = () => {
 		console.log(result);
 		setSGPAResult(result);
 
-		setTimeout(() => {
-			document.getElementById("sgpa").focus();
-		}, 100);
-
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
 		localStorage.setItem("sem3", result.toFixed(4));
 		localStorage.setItem("semThreeMarks", JSON.stringify(data));
+
+		setTimeout(() => {
+			document.getElementById("sgpa").focus();
+		}, 100);
 	};
 
 	//#Calculate Grade point
@@ -61,9 +62,7 @@ const SemThreeSGPACard = () => {
 
 	return (
 		<>
-			<div
-				className="flex justify-center items-center  "
-			>
+			<div className="flex justify-center items-center  ">
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
@@ -87,6 +86,7 @@ const SemThreeSGPACard = () => {
 										name="dap"
 										id="dap"
 										required
+										defaultValue={semThreeMarks?.dap}
 										{...register("dap")}
 									/>
 								</div>
@@ -104,6 +104,7 @@ const SemThreeSGPACard = () => {
 										name="iot"
 										id="iot"
 										required
+										defaultValue={semThreeMarks?.iot}
 										{...register("iot")}
 									/>
 								</div>
@@ -124,6 +125,7 @@ const SemThreeSGPACard = () => {
 										name="pe3"
 										id="pe3"
 										required
+										defaultValue={semThreeMarks?.pe3}
 										{...register("pe3")}
 									/>
 								</div>
@@ -145,6 +147,7 @@ const SemThreeSGPACard = () => {
 										name="pe4"
 										id="pe4"
 										required
+										defaultValue={semThreeMarks?.pe4}
 										{...register("pe4")}
 									/>
 								</div>
@@ -162,6 +165,7 @@ const SemThreeSGPACard = () => {
 										name="pp1"
 										id="pp1"
 										required
+										defaultValue={semThreeMarks?.pp1}
 										{...register("pp1")}
 									/>
 								</div>
@@ -180,6 +184,7 @@ const SemThreeSGPACard = () => {
 										name="dapLab"
 										id="dapLab"
 										required
+										defaultValue={semThreeMarks?.dapLab}
 										{...register("dapLab")}
 									/>
 								</div>
@@ -197,6 +202,7 @@ const SemThreeSGPACard = () => {
 										name="iotLab"
 										id="iotLab"
 										required
+										defaultValue={semThreeMarks?.iotLab}
 										{...register("iotLab")}
 									/>
 								</div>
@@ -214,6 +220,7 @@ const SemThreeSGPACard = () => {
 										name="sp"
 										id="sp"
 										required
+										defaultValue={semThreeMarks?.sp}
 										{...register("sp")}
 									/>
 								</div>
@@ -231,6 +238,7 @@ const SemThreeSGPACard = () => {
 										name="internship"
 										id="internship"
 										required
+										defaultValue={semThreeMarks?.internship}
 										{...register("internship")}
 									/>
 								</div>

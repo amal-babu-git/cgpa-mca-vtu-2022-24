@@ -32,14 +32,14 @@ const CGPA = () => {
 		// store cgpa to local storage
 		localStorage.setItem("cgpa", result.toFixed(4));
 
-		setTimeout(() => {
-			document.getElementById("cgpa").focus();
-		}, 100);
-
 		// save to local storage this will helps for only print sgpas in report download page
 		localStorage.setItem("sem1", semOneSGPA.toFixed(4));
 		localStorage.setItem("sem2", semTwoSGPA.toFixed(4));
 		localStorage.setItem("sem3", semThreeSGPA.toFixed(4));
+
+		setTimeout(() => {
+			document.getElementById("cgpa").focus();
+		}, 100);
 	};
 
 	return (

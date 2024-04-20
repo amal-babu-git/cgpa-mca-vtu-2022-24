@@ -5,9 +5,13 @@ import { Link } from "react-router-dom";
 const SemOneSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
+	const [semOneMarks, setSemOneMarks] = useState(
+		JSON.parse(localStorage.getItem("semOneMarks", ""))
+	);
 
-	
-	useEffect(()=>{window.scroll(0,0)},[])
+	useEffect(() => {
+		window.scroll(0, 0);
+	}, []);
 
 	const onSubmit = (data) => {
 		console.log(data);
@@ -27,11 +31,12 @@ const SemOneSGPACard = () => {
 		const result = sum / parseFloat(24);
 		console.log(result);
 		setSGPAResult(result);
-		document.getElementById("sgpa").focus();
 
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
 		localStorage.setItem("sem1", result.toFixed(4));
+		setSemOneMarks(data);
 		localStorage.setItem("semOneMarks", JSON.stringify(data));
+		document.getElementById("sgpa").focus();
 	};
 
 	// function to calculate grade point
@@ -59,7 +64,9 @@ const SemOneSGPACard = () => {
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
-						<p className="text-start text-primary">SGPA calculator</p>
+						<p className="text-start text-primary font-semibold">
+							1<sup>st</sup> SGPA calculator
+						</p>
 
 						<div className="card-body text-start w-96">
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -76,6 +83,7 @@ const SemOneSGPACard = () => {
 										name="math"
 										id="math"
 										required
+										defaultValue={semOneMarks?.math}
 										{...register("math")}
 									/>
 								</div>
@@ -92,6 +100,7 @@ const SemOneSGPACard = () => {
 										name="os"
 										id="os"
 										required
+										defaultValue={semOneMarks?.os}
 										{...register("os")}
 									/>
 								</div>
@@ -108,6 +117,7 @@ const SemOneSGPACard = () => {
 										name="ds"
 										id="ds"
 										required
+										defaultValue={semOneMarks?.ds}
 										{...register("ds")}
 									/>
 								</div>
@@ -124,6 +134,7 @@ const SemOneSGPACard = () => {
 										name="cn"
 										id="cn"
 										required
+										defaultValue={semOneMarks?.cn}
 										{...register("cn")}
 									/>
 								</div>
@@ -140,6 +151,7 @@ const SemOneSGPACard = () => {
 										name="da"
 										id="da"
 										required
+										defaultValue={semOneMarks?.da}
 										{...register("da")}
 									/>
 								</div>
@@ -156,6 +168,7 @@ const SemOneSGPACard = () => {
 										name="ds-lab"
 										id="ds-lab"
 										required
+										defaultValue={semOneMarks?.dslab}
 										{...register("dslab")}
 									/>
 								</div>
@@ -172,6 +185,7 @@ const SemOneSGPACard = () => {
 										name="cn-lab"
 										id="cn-lab"
 										required
+										defaultValue={semOneMarks?.cnlab}
 										{...register("cnlab")}
 									/>
 								</div>
@@ -188,6 +202,7 @@ const SemOneSGPACard = () => {
 										name="ipr-lab"
 										id="ipr-lab"
 										required
+										defaultValue={semOneMarks?.ipr}
 										{...register("ipr")}
 									/>
 								</div>

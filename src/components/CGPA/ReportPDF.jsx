@@ -3,6 +3,7 @@ import { useForm } from "react-hook-form";
 import generatePDF, { Resolution, Margin, usePDF } from "react-to-pdf";
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "../../../firebase";
+import { Link } from "react-router-dom";
 
 const ReportPDF = () => {
 	const [semOneMarks, setSemOneMarks] = useState("");
@@ -92,7 +93,7 @@ const ReportPDF = () => {
 							{...register("name")}
 						/>
 					</label>
-					<label className="input input-bordered flex items-center gap-2">
+					<label className="input input-bordered flex items-center gap-2 mb-1">
 						USN
 						<input
 							type="text"
@@ -280,6 +281,12 @@ const ReportPDF = () => {
 					CGPA Calculator MCA (VTU) 2022-24 Developed by amal-babu-git
 				</p>
 			</div>
+			<Link
+				to={"/pp"}
+				className="text-gray-200"
+			>
+				Privacy Policy
+			</Link>
 		</div>
 	);
 };

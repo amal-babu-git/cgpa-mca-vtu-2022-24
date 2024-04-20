@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 const SemTwoSGPACard = () => {
 	const { register, handleSubmit } = useForm();
 	const [SGPAResult, setSGPAResult] = useState(0.0);
+	const semTwoMarks = JSON.parse(localStorage.getItem("semTwoMarks", ""));
 
 	useEffect(() => {
 		window.scroll(0, 0);
@@ -31,13 +32,13 @@ const SemTwoSGPACard = () => {
 		console.log(result);
 		setSGPAResult(result);
 
-		setTimeout(() => {
-			document.getElementById("sgpa").focus();
-		}, 100);
-
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
 		localStorage.setItem("sem2", result.toFixed(4));
 		localStorage.setItem("semTwoMarks", JSON.stringify(data));
+
+		setTimeout(() => {
+			document.getElementById("sgpa").focus();
+		}, 100);
 	};
 
 	// function to calculate grade point
@@ -65,7 +66,9 @@ const SemTwoSGPACard = () => {
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
-						<p className="text-start text-primary">SGPA calculator</p>
+						<p className="text-start text-primary font-semibold">
+							2<sup>nd</sup> SGPA calculator
+						</p>
 
 						<div className="card-body text-start w-96">
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -83,6 +86,7 @@ const SemTwoSGPACard = () => {
 										name="dbms"
 										id="dbms"
 										required
+										defaultValue={semTwoMarks?.dbms}
 										{...register("dbms")}
 									/>
 								</div>
@@ -100,6 +104,7 @@ const SemTwoSGPACard = () => {
 										name="java"
 										id="java"
 										required
+										defaultValue={semTwoMarks?.java}
 										{...register("java")}
 									/>
 								</div>
@@ -117,6 +122,7 @@ const SemTwoSGPACard = () => {
 										name="se"
 										id="se"
 										required
+										defaultValue={semTwoMarks?.se}
 										{...register("se")}
 									/>
 								</div>
@@ -134,6 +140,7 @@ const SemTwoSGPACard = () => {
 										name="web"
 										id="web"
 										required
+										defaultValue={semTwoMarks?.web}
 										{...register("web")}
 									/>
 								</div>
@@ -151,6 +158,7 @@ const SemTwoSGPACard = () => {
 										name="pe1"
 										id="pe1"
 										required
+										defaultValue={semTwoMarks?.pe1}
 										{...register("pe1")}
 									/>
 								</div>
@@ -168,6 +176,7 @@ const SemTwoSGPACard = () => {
 										name="pe2"
 										id="pe2"
 										required
+										defaultValue={semTwoMarks?.pe2}
 										{...register("pe2")}
 									/>
 								</div>
@@ -185,6 +194,7 @@ const SemTwoSGPACard = () => {
 										name="dbmsLab"
 										id="dbmsLab"
 										required
+										defaultValue={semTwoMarks?.dbmsLab}
 										{...register("dbmsLab")}
 									/>
 								</div>
@@ -202,6 +212,7 @@ const SemTwoSGPACard = () => {
 										name="javaLab"
 										id="javaLab"
 										required
+										defaultValue={semTwoMarks?.javaLab}
 										{...register("javaLab")}
 									/>
 								</div>
@@ -217,6 +228,7 @@ const SemTwoSGPACard = () => {
 										name="seminar"
 										id="seminar"
 										required
+										defaultValue={semTwoMarks?.seminar}
 										{...register("seminar")}
 									/>
 								</div>
