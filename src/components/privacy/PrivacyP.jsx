@@ -11,9 +11,9 @@ const PrivacyP = () => {
 					application allows students to input their marks for each subject and
 					calculate their SGPAs for semesters 1 and 2, as well as their overall
 					CGPA for the first year. It acts as an online calculator for this
-					specific purpose and does not store any user information. As this is
-					an early experimental version, there may be bugs and inaccuracies in
-					the calculations. We welcome user feedback to help improve the tool.
+					specific purpose. As this is an early experimental version, there may
+					be bugs and inaccuracies in the calculations. We welcome user feedback
+					to help improve the tool.
 				</p>
 
 				{/* Terms */}
@@ -56,9 +56,8 @@ const PrivacyP = () => {
 					data you have entered, including your name, USN, and semester marks,
 					will be sent to our Firestore database. This data is used only for
 					cross-verifying the calculations and will not be shared or used for
-					any other purpose. It is not connected to individual identities. We
-					collect only the data that you provide to us and do not gather any
-					additional information or engage in tracking.
+					any other purpose. We collect only the data that you provide to us and
+					do not gather any additional information or engage in tracking.
 				</p>
 			</div>
 		</div>

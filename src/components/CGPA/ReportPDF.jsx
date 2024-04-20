@@ -133,7 +133,7 @@ const ReportPDF = () => {
 								</p>
 							</label>
 						</div>
-						<h3 className="font-mono font-semibold text-blue-700 text-lg">
+						<h3 className="font-sans font-semibold text-blue-700 text-lg">
 							Semester I
 						</h3>
 
@@ -173,7 +173,7 @@ const ReportPDF = () => {
 				</div>
 				<div className="mt-10">
 					<div className="overflow-x-auto">
-						<h3 className="font-mono font-semibold text-blue-700 text-lg">
+						<h3 className="font-sans font-semibold text-blue-700 text-lg">
 							Semester II
 						</h3>
 						<div></div>
@@ -213,7 +213,7 @@ const ReportPDF = () => {
 				</div>
 				<div className="mt-10">
 					<div className="overflow-x-auto">
-						<h3 className="font-mono font-semibold text-blue-700 text-lg">
+						<h3 className="font-sans font-semibold text-blue-700 text-lg">
 							Semester III
 						</h3>
 						<div></div>
@@ -253,7 +253,7 @@ const ReportPDF = () => {
 				</div>
 				<div className="mt-10">
 					<div className="overflow-x-auto">
-						<h3 className="font-mono font-semibold text-blue-700 text-lg">
+						<h3 className="font-sans font-semibold text-blue-700 text-lg">
 							CGPA
 						</h3>
 						<div></div>
