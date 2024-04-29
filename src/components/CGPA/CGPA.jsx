@@ -47,7 +47,7 @@ const CGPA = () => {
 			<div className="flex justify-center items-center ">
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
 					<div className="card-body">
-						<h2 className="card-title">Enter Your Sem I and Sem II SGPA</h2>
+						<h2 className="card-title">Enter SGPAs</h2>
 						<p className="text-start text-primary">CGPA calculator</p>
 
 						<div className="card-body text-start w-96">
@@ -129,7 +129,6 @@ const CGPA = () => {
 												className="btn"
 												to={"/report"}
 											>
-												{" "}
 												Download Result
 											</Link>
 										</div>

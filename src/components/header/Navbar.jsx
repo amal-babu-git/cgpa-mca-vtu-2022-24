@@ -11,9 +11,12 @@ const Navbar = () => {
 	const onClickSemTwo = () => {
 		navigate("/sgpa-sem-two");
 	};
+	const onClickSemThree = () => {
+		navigate("/sgpa-sem-three");
+	};
 	// on click to calculate first year CGPA
-	const onClickFirstYearCGPA = () => {
-		navigate("/cgpa-year-one");
+	const onClickCGPA = () => {
+		navigate("/cgpa");
 	};
 	const onClickPrivacyPolicy = () => {
 		navigate("/privacy-policy");
@@ -54,7 +57,10 @@ const Navbar = () => {
 								<a onClick={onClickSemTwo}>SEM II SGPA</a>
 							</li>
 							<li>
-								<a onClick={onClickFirstYearCGPA}>CGPA OF FIRST YEAR</a>
+								<a onClick={onClickSemThree}>SEM III SGPA</a>
+							</li>
+							<li>
+								<a onClick={onClickCGPA}>CGPA</a>
 							</li>
 							{/* <li>
 								<a onClick={onClickPrivacyPolicy}>

@@ -275,7 +275,7 @@ const SemThreeSGPACard = () => {
 										/>
 										<Link
 											className="btn btn-neutral btn-sm mt-2"
-											to={"/cgpa-year-one"}
+											to={"/cgpa"}
 										>
 											Calculate CGPA
 										</Link>

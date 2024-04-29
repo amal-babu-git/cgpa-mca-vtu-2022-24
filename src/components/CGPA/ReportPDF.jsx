@@ -17,7 +17,7 @@ const ReportPDF = () => {
 	const [studentDetails, setStudentDetails] = useState({});
 	const { register, handleSubmit } = useForm();
 
-	const { targetRef } = usePDF({ filename: "page.pdf" });
+	const { targetRef } = usePDF({ filename: "result.pdf" });
 
 	useEffect(() => {
 		setSemOneMarks(JSON.parse(localStorage.getItem("semOneMarks")));
@@ -29,6 +29,10 @@ const ReportPDF = () => {
 		setSemThreeMarks(JSON.parse(localStorage.getItem("semThreeMarks")));
 		setSemThreeSGPA(JSON.parse(localStorage.getItem("sem3")));
 		setCGPA(JSON.parse(localStorage.getItem("cgpa")));
+	}, []);
+
+	useEffect(() => {
+		window.scroll(0,0);
 	}, []);
 
 	const options = {
@@ -68,8 +72,8 @@ const ReportPDF = () => {
 				sgpa2: semTwoSGPA ?? 0,
 				sgpa3: semThreeSGPA ?? 0,
 				cgpa: CGPA ?? 0,
+				rating: data?.rating ?? 0,
 			});
-			
 		} catch (error) {
 			console.log("Error...", error);
 		}
@@ -103,6 +107,43 @@ const ReportPDF = () => {
 							{...register("usn")}
 						/>
 					</label>
+					<div className="rating p-1 flex justify-center mb-1 mt-1">
+						<input
+							type="radio"
+							value={1}
+							{...register("rating")}
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+						/>
+						<input
+							type="radio"
+							value={2}
+							{...register("rating")}
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+						/>
+						<input
+							type="radio"
+							value={3}
+							{...register("rating")}
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+						/>
+						<input
+							type="radio"
+							value={4}
+							{...register("rating")}
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+						/>
+						<input
+							type="radio"
+							value={5}
+							{...register("rating")}
+							name="rating-2"
+							className="mask mask-star-2 bg-orange-400"
+						/>
+					</div>
 					<input
 						type="submit"
 						className="btn mt-1 mb-1"

@@ -17,7 +17,7 @@ const Home = () => {
 	};
 	// on click to calculate first year CGPA
 	const onClickFirstYearCGPA = () => {
-		navigate("/cgpa-year-one");
+		navigate("/cgpa");
 	};
 	return (
 		<>

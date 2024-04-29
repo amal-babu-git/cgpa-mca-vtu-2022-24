@@ -34,7 +34,7 @@ function App() {
 					/>
 
 					<Route
-						path="cgpa-year-one"
+						path="cgpa"
 						element={<CGPA />}
 					/>
 					<Route
