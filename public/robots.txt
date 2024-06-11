@@ -1,0 +1,11 @@
+User-agent: *
+
+# Build files
+Disallow: /build/
+Disallow: /node_modules/
+
+# React routes
+Allow: /*
+
+# Sitemap
+Sitemap: https://cgpa-sgpa.web.app/sitemap.xml

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+	xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+	<url>
+		<loc>https://cgpa-sgpa.web.app/</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>1.0</priority>
+		<title>CGPA SGPA Calculator Home</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/sgpa-sem-one</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.8</priority>
+		<title>Semester One SGPA Calculator</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/sgpa-sem-two</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.8</priority>
+		<title>Semester Two SGPA Calculator</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/sgpa-sem-three</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.8</priority>
+		<title>Semester Three SGPA Calculator</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/cgpa</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.8</priority>
+		<title>CGPA Calculator</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/privacy-policy</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.1</priority>
+		<title>Privacy Policy</title>
+	</url>
+	<url>
+		<loc>https://cgpa-sgpa.web.app/report</loc>
+		<lastmod>2024-05-01</lastmod>
+		<changefreq>weekly</changefreq>
+		<priority>0.7</priority>
+		<title>Report PDF</title>
+	</url>
+</urlset>
