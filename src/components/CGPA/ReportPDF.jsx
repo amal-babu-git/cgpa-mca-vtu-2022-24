@@ -72,7 +72,7 @@ const ReportPDF = () => {
 				sgpa2: semTwoSGPA ?? 0,
 				sgpa3: semThreeSGPA ?? 0,
 				cgpa: CGPA ?? 0,
-				rating: data?.rating ?? 0,
+				// rating: data?.rating ?? 0,
 			});
 		} catch (error) {
 			console.log("Error...", error);
@@ -107,7 +107,7 @@ const ReportPDF = () => {
 							{...register("usn")}
 						/>
 					</label>
-					<div className="rating p-1 flex justify-center mb-1 mt-1">
+					{/* <div className="rating p-1 flex justify-center mb-1 mt-1">
 						<input
 							type="radio"
 							value={1}
@@ -143,7 +143,7 @@ const ReportPDF = () => {
 							name="rating-2"
 							className="mask mask-star-2 bg-orange-400"
 						/>
-					</div>
+					</div> */}
 					<input
 						type="submit"
 						className="btn mt-1 mb-1"
