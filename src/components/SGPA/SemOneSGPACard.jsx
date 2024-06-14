@@ -60,8 +60,8 @@ const SemOneSGPACard = () => {
 
 	return (
 		<>
-			<div className="flex justify-center items-center ">
-				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-4">
+			<div className="flex justify-center items-center mt-10">
+				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-2">
 					<div className="card-body">
 						<h2 className="card-title">Enter your marks</h2>
 						<p className="text-start text-primary font-semibold">

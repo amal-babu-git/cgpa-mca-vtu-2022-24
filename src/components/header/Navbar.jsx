@@ -18,9 +18,9 @@ const Navbar = () => {
 	const onClickCGPA = () => {
 		navigate("/cgpa");
 	};
-	const onClickPrivacyPolicy = () => {
-		navigate("/privacy-policy");
-	};
+	// const onClickPrivacyPolicy = () => {
+	// 	navigate("/privacy-policy");
+	// };
 
 	return (
 		<>

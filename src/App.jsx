@@ -1,7 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import "./App.css";
+// import "./App.css";
 import Navbar from "./components/header/Navbar";
-import Home from "./components/home/home";
+import Home from "./components/home/Home"
 import SemOneSGPACard from "./components/SGPA/SemOneSGPACard";
 import SemTwoSGPACard from "./components/SGPA/SemTwoSGPACard";
 import CGPA from "./components/CGPA/CGPA";
