@@ -80,7 +80,7 @@ const ReportPDF = () => {
 	};
 
 	return (
-		<div className="p-2 mt-10">
+		<div className="p-2 mt-14 text-center">
 			<div className="p-2">
 				{/* Name and roll number */}
 				<form

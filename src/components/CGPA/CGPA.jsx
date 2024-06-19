@@ -48,7 +48,7 @@ const CGPA = () => {
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-2">
 					<div className="card-body">
 						<h2 className="card-title">Enter SGPAs</h2>
-						<p className="text-start text-primary">CGPA calculator</p>
+						<p className="text-start text-primary font-semibold">CGPA calculator</p>
 
 						<div className="card-body text-start w-96">
 							<form onSubmit={handleSubmit(onSubmit)}>
