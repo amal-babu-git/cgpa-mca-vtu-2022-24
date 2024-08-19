@@ -29,7 +29,7 @@ const SemFourSGPACard = () => {
 		setSGPAResult(result);
 
 		// store this value to local storage, this will be used for calculate cgpa in cgpa form
-		localStorage.setItem("sem2", result.toFixed(4));
+		localStorage.setItem("sem4", result.toFixed(4));
 		localStorage.setItem("semFourMarks", JSON.stringify(data));
 
 		setTimeout(() => {
@@ -95,7 +95,7 @@ const SemFourSGPACard = () => {
 									<label className="label">
 										<span className="label-text font-semibold">
 											<span className="label-text font-semibold text-justify">
-												PE5 22MCA42<span className="text-secondary">X</span> (IT
+												PE6 22MCA42<span className="text-secondary">X</span> (IT
 												Project Management / Semantic Web and Social Networks /
 												Game Designing / Agile Technology/{" "}
 												<span className="text-secondary">

@@ -14,6 +14,7 @@ const CGPA = () => {
 	const sem1 = localStorage.getItem("sem1") ?? "";
 	const sem2 = localStorage.getItem("sem2") ?? "";
 	const sem3 = localStorage.getItem("sem3") ?? "";
+	const sem4 = localStorage.getItem("sem4") ?? "";
 
 	const onSubmit = (data) => {
 		console.log(data);
@@ -21,21 +22,24 @@ const CGPA = () => {
 		const semOneSGPA = parseFloat(data.sem1);
 		const semTwoSGPA = parseFloat(data.sem2);
 		const semThreeSGPA = parseFloat(data.sem3);
+		const semFourSGPA = parseFloat(data.sem4);
 
-		// (sem1_sgpa * total_credits_in_sem_1 + sem2_sgpa * total_credits_in_sem_2) / total_credits
+		// (sem1_sgpa * total_credits_in_sem_1 + sem2_sgpa * total_credits_in_sem_2...) / total_credits
 		const result =
-			parseFloat(semOneSGPA * 24 + semTwoSGPA * 26 + semThreeSGPA * 26) /
-			parseFloat(76);
+			parseFloat(
+				semOneSGPA * 24 + semTwoSGPA * 26 + semThreeSGPA * 26 + semFourSGPA * 24
+			) / parseFloat(100);
 		console.log(result);
 		setCGPAResult(result);
 
 		// store cgpa to local storage
 		localStorage.setItem("cgpa", result.toFixed(4));
 
-		// save to local storage this will helps for only print sgpas in report download page
+		// save to local storage this will helps for only print sgpas in report-download page
 		localStorage.setItem("sem1", semOneSGPA.toFixed(4));
 		localStorage.setItem("sem2", semTwoSGPA.toFixed(4));
 		localStorage.setItem("sem3", semThreeSGPA.toFixed(4));
+		localStorage.setItem("sem4", semFourSGPA.toFixed(4));
 
 		setTimeout(() => {
 			document.getElementById("cgpa").focus();
@@ -48,7 +52,9 @@ const CGPA = () => {
 				<div className="card w-auto bg-base-100 shadow-xl p-1 mt-2">
 					<div className="card-body">
 						<h2 className="card-title">Enter SGPAs</h2>
-						<p className="text-start text-primary font-semibold">CGPA calculator</p>
+						<p className="text-start text-primary font-semibold">
+							CGPA calculator
+						</p>
 
 						<div className="card-body text-start w-96">
 							<form onSubmit={handleSubmit(onSubmit)}>
@@ -107,6 +113,25 @@ const CGPA = () => {
 										defaultValue={sem3}
 										required
 										{...register("sem3")}
+									/>
+								</div>
+								<div className="form-control">
+									<label className="label">
+										<span className="label-text font-semibold">
+											ENTER 3<sup>rd</sup> SEM SGPA
+										</span>
+									</label>
+									<input
+										type="number"
+										min={0}
+										max={10}
+										step={0.00001}
+										className="input input-bordered"
+										name="java"
+										id="java"
+										defaultValue={sem4}
+										required
+										{...register("sem4")}
 									/>
 								</div>
 

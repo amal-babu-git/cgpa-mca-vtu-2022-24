@@ -9,9 +9,11 @@ const ReportPDF = () => {
 	const [semOneMarks, setSemOneMarks] = useState("");
 	const [semTwoMarks, setSemTwoMarks] = useState("");
 	const [semThreeMarks, setSemThreeMarks] = useState("");
+	const [semFourMarks, setSemFourMarks] = useState("");
 	const [semOneSGPA, setSemOneSGPA] = useState("");
 	const [semTwoSGPA, setSemTwoSGPA] = useState("");
 	const [semThreeSGPA, setSemThreeSGPA] = useState("");
+	const [semFourSGPA, setSemFourSGPA] = useState("");
 	const [CGPA, setCGPA] = useState("");
 
 	const [studentDetails, setStudentDetails] = useState({});
@@ -28,6 +30,9 @@ const ReportPDF = () => {
 
 		setSemThreeMarks(JSON.parse(localStorage.getItem("semThreeMarks")));
 		setSemThreeSGPA(JSON.parse(localStorage.getItem("sem3")));
+
+		setSemFourMarks(JSON.parse(localStorage.getItem("semFourMarks")));
+		setSemFourSGPA(JSON.parse(localStorage.getItem("sem4")));
 		setCGPA(JSON.parse(localStorage.getItem("cgpa")));
 	}, []);
 
@@ -68,9 +73,11 @@ const ReportPDF = () => {
 				sem1: semOneMarks ?? "",
 				sem2: semTwoMarks ?? "",
 				sem3: semThreeMarks ?? "",
+				sem4: semFourMarks ?? "",
 				sgpa1: semOneSGPA ?? 0,
 				sgpa2: semTwoSGPA ?? 0,
 				sgpa3: semThreeSGPA ?? 0,
+				sgpa4: semFourSGPA ?? 0,
 				cgpa: CGPA ?? 0,
 				// rating: data?.rating ?? 0,
 			});
@@ -287,6 +294,46 @@ const ReportPDF = () => {
 									<td></td>
 									<td className="text-blue-800 font-bold">SGPA</td>
 									<td className="text-blue-800 font-bold">{semThreeSGPA}</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</div>
+				<div className="mt-10">
+					<div className="overflow-x-auto">
+						<h3 className="font-sans font-semibold text-blue-700 text-lg">
+							Semester IV
+						</h3>
+						<div></div>
+						<table className="table mt-3">
+							{/* head */}
+
+							<thead>
+								<tr className="bg-zinc-200">
+									<th></th>
+									<th>Subject</th>
+									<th>Mark</th>
+								</tr>
+							</thead>
+							<tbody>
+								{/* TODO: */}
+								{/* row 1 */}
+								{semFourMarks !== null &&
+									Object.entries(semFourMarks).map(([key, value]) => (
+										<tr
+											key={key}
+											className="bg-base-200"
+										>
+											<td></td>
+											<th>{key.toUpperCase()}</th>
+											<td>{value ?? "N/A"}</td>
+										</tr>
+									))}
+
+								<tr className="bg-zinc-200">
+									<td></td>
+									<td className="text-blue-800 font-bold">SGPA</td>
+									<td className="text-blue-800 font-bold">{semFourSGPA}</td>
 								</tr>
 							</tbody>
 						</table>
