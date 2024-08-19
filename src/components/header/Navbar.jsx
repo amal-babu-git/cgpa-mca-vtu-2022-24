@@ -76,6 +76,7 @@ const Navbar = () => {
 						className="btn btn-ghost normal-case text-xl"
 					>
 						<h1>CGPA Calculator MCA 2022-24</h1>
+						<span className="text-secondary">Beta</span>
 						{/* <h1 className="font-bold text-transparent bg-clip-text bg-gradient-to-r  from-red-600 via-orange-600 via-yellow-600 via-green-800 via-blue-800 via-indigo-800 to-violet-800">
 							CGPA Calculator MCA 2022-24
 						</h1> */}

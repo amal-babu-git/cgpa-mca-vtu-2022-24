@@ -118,7 +118,7 @@ const CGPA = () => {
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold">
-											ENTER 3<sup>rd</sup> SEM SGPA
+											ENTER 4<sup>th</sup> SEM SGPA
 										</span>
 									</label>
 									<input

@@ -13,7 +13,8 @@ const SemFourSGPACard = () => {
 
 	const onSubmit = (data) => {
 		console.log(data);
-
+		// make the project work phase 2 to half because max mark is 200, but calculateGP only support 100
+		data["projectWorkPhase2"] = parseFloat(data["projectWorkPhase2"]) / 2;
 		// calculate  grade-point * course-credit
 		const pe5 = calculateGP(parseFloat(data.pe5)) * parseFloat(3);
 		const pe6 = calculateGP(parseFloat(data.pe6)) * parseFloat(3);
@@ -144,7 +145,7 @@ const SemFourSGPACard = () => {
 									<input
 										type="number"
 										min={0}
-										max={100}
+										max={200}
 										className="input input-bordered"
 										name="projectWorkPhase2"
 										id="projectWorkPhase2"
