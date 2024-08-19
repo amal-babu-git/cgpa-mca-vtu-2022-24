@@ -73,7 +73,7 @@ const Navbar = () => {
 				<div className="navbar-center">
 					<Link
 						to={"/"}
-						className="btn btn-ghost normal-case text-xl"
+						className="btn btn-ghost normal-case text-xl bg-secondary-content"
 					>
 						<h1>CGPA Calculator MCA 2022-24</h1>
 						<span className="text-secondary">Beta</span>

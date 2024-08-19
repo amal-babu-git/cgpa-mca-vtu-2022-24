@@ -71,7 +71,7 @@ const Home = () => {
 					<div className="mt-3">
 						<div
 							role="alert"
-							className="alert alert-warning"
+							className="alert bg-secondary-content"
 						>
 							<svg
 								xmlns="http://www.w3.org/2000/svg"
@@ -88,10 +88,10 @@ const Home = () => {
 							</svg>
 							<span>
 								<Link
-									className="link-primary underline"
+									className="link-primary"
 									to={"https://cgpa-sgpa--beta-4vi7tum2.web.app/"}
 								>
-									You are in Beta Channel
+									🎉 Welcome to the Beta!
 								</Link>
 							</span>
 						</div>
