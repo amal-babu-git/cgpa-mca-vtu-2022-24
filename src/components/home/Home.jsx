@@ -88,8 +88,7 @@ const Home = () => {
 							</svg>
 							<span>
 								<Link className="link-primary underline" to={"https://cgpa-sgpa--beta-4vi7tum2.web.app/"}>
-									4<sup>th</sup>sem SGPA and overall CGPA updated in beta
-									channel
+									BETA CHANNEL
 								</Link>
 							</span>
 						</div>
