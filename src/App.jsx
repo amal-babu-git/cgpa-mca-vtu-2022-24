@@ -9,6 +9,7 @@ import Footer from "./components/footer/Footer";
 import PrivacyP from "./components/privacy/PrivacyP";
 import SemThreeSGPACard from "./components/SGPA/semThreeSGPACard";
 import ReportPDF from "./components/CGPA/ReportPDF";
+import SemFourSGPACard from "./components/SGPA/SemFourSGPACard";
 
 function App() {
 	return (
@@ -31,6 +32,10 @@ function App() {
 					<Route
 						path="sgpa-sem-three"
 						element={<SemThreeSGPACard />}
+					/>
+					<Route
+						path="sgpa-sem-four"
+						element={<SemFourSGPACard />}
 					/>
 
 					<Route
