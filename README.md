@@ -37,7 +37,7 @@ Make sure you have the following installed on your local machine:
 3. **Start the development server:**
 
     ```bash
-    npm start
+    npm run dev
     ```
 
     The application will be available at `http://localhost:3000`.
