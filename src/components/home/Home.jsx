@@ -136,7 +136,7 @@ const Home = () => {
 						</div>
 						<div className="collapse-content text-start p-1 font-sans ">
 							<p className="font-semibold p-1">
-								Are you interested in maintaining and improving the{" "}
+								Are you interested in maintaining and improving {" "}
 								<Link
 									to={"/"}
 									className="link-primary"
