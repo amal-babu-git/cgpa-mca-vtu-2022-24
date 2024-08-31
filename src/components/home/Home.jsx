@@ -132,7 +132,7 @@ const Home = () => {
 						<input type="checkbox" />
 
 						<div className="collapse-title text-base font-medium">
-							Important Message for Junior MCA Students
+							Important Notification for Junior MCA Students
 						</div>
 						<div className="collapse-content text-start p-1 font-sans ">
 							<p className="font-semibold p-1">
