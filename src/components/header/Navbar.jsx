@@ -75,7 +75,7 @@ const Navbar = () => {
 							</li>
 							<li>
 								<Link
-									to="https://github.com/amal-babu-git/cgpa-mca-vtu-2022-24/blob/production/LICENSE"
+									to="https://github.com/amal-babu-git/cgpa-mca-vtu-2022-24/blob/production/LICENSE.md"
 									target="_blank"
 								>
 									License
