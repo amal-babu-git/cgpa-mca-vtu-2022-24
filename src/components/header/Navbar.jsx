@@ -14,13 +14,16 @@ const Navbar = () => {
 	const onClickSemThree = () => {
 		navigate("/sgpa-sem-three");
 	};
+	const onClickSemFour = () => {
+		navigate("/sgpa-sem-four");
+	};
 	// on click to calculate first year CGPA
 	const onClickCGPA = () => {
 		navigate("/cgpa");
 	};
-	// const onClickPrivacyPolicy = () => {
-	// 	navigate("/privacy-policy");
-	// };
+	const onClickPrivacyPolicy = () => {
+		navigate("/privacy-policy");
+	};
 
 	return (
 		<>
@@ -60,26 +63,38 @@ const Navbar = () => {
 								<a onClick={onClickSemThree}>SEM III SGPA</a>
 							</li>
 							<li>
+								<a onClick={onClickSemFour}>SEM III SGPA</a>
+							</li>
+							<li>
 								<a onClick={onClickCGPA}>CGPA</a>
 							</li>
-							{/* <li>
+							<li>
 								<a onClick={onClickPrivacyPolicy}>
 									Terms and Conditions & Privacy Policy
 								</a>
-							</li> */}
+							</li>
 						</ul>
 					</div>
 				</div>
-				<div className="navbar-center">
+				<div className="navbar-center bg-primary-content rounded-xl pe-2">
 					<Link
 						to={"/"}
-						className="btn btn-ghost normal-case text-xl bg-secondary-content"
+						className="btn btn-ghost normal-case text-xl "
 					>
 						<h1>CGPA Calculator MCA 2022-24</h1>
-						<span className="text-secondary">Beta</span>
+
 						{/* <h1 className="font-bold text-transparent bg-clip-text bg-gradient-to-r  from-red-600 via-orange-600 via-yellow-600 via-green-800 via-blue-800 via-indigo-800 to-violet-800">
 							CGPA Calculator MCA 2022-24
 						</h1> */}
+					</Link>
+					<Link
+						className="text-primary font-semibold   npm install -g firebase-tools "
+						to={"https://github.com/amal-babu-git"}
+						target="_blank"
+					>
+						<span className="badge badge-primary badge-outline">
+							@amal-babu-git
+						</span>
 					</Link>
 				</div>
 				<div className="navbar-end">

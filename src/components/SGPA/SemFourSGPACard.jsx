@@ -72,9 +72,9 @@ const SemFourSGPACard = () => {
 								<div className="form-control">
 									<label className="label">
 										<span className="label-text font-semibold text-justify">
-											PE5 22MCA41<span className="text-secondary">X</span> (Deep
+											PE5 22MCA41<span className="text-primary">X</span> (Deep
 											Learning / Big Data Analytics / Wireless Ad Hoc Networks /{" "}
-											<span className="text-secondary">
+											<span className="text-primary">
 												Software Project Management
 											</span>{" "}
 											/ Software Defined Networks)
@@ -96,10 +96,10 @@ const SemFourSGPACard = () => {
 									<label className="label">
 										<span className="label-text font-semibold">
 											<span className="label-text font-semibold text-justify">
-												PE6 22MCA42<span className="text-secondary">X</span> (IT
+												PE6 22MCA42<span className="text-primary">X</span> (IT
 												Project Management / Semantic Web and Social Networks /
 												Game Designing / Agile Technology/{" "}
-												<span className="text-secondary">
+												<span className="text-primary">
 													Software Metrics & Quality Assurance
 												</span>
 												)

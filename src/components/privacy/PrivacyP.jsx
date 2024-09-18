@@ -1,6 +1,6 @@
 const PrivacyP = () => {
 	return (
-		<div className="mt-4 font-mono text-justify">
+		<div className="mt-12 font-mono text-justify">
 			<div className="container mx-auto p-4">
 				{/* About */}
 				<h1 className="text-2xl font-medium">About</h1>

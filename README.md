@@ -70,7 +70,7 @@ We welcome contributions! To contribute, follow these steps:
 
 ## License
 
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+https://www.gnu.org/licenses/agpl-3.0.txt
 
 ## Feedback
 
