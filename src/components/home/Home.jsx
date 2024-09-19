@@ -122,7 +122,7 @@ const Home = () => {
 							</Link>
 						</span>
 					</div>
-					{/* alert 3 */}
+					{/* alert 3
 					<div className="collapse bg-base-200 mt-2 w-96">
 						<input type="checkbox" />
 
@@ -173,7 +173,7 @@ const Home = () => {
 								future curriculum changes.
 							</p>
 						</div>
-					</div>
+					</div> */}
 				</div>
 			</div>
 		</>

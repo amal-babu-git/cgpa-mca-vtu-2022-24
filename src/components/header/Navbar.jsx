@@ -21,9 +21,9 @@ const Navbar = () => {
 	const onClickCGPA = () => {
 		navigate("/cgpa");
 	};
-	const onClickPrivacyPolicy = () => {
-		navigate("/privacy-policy");
-	};
+	// const onClickPrivacyPolicy = () => {
+	// 	navigate("/privacy-policy");
+	// };
 
 	return (
 		<>
@@ -68,11 +68,11 @@ const Navbar = () => {
 							<li>
 								<a onClick={onClickCGPA}>CGPA</a>
 							</li>
-							<li>
+							{/* <li>
 								<a onClick={onClickPrivacyPolicy}>
 									Terms and Conditions & Privacy Policy
 								</a>
-							</li>
+							</li> */}
 							<li>
 								<Link
 									to="https://github.com/amal-babu-git/cgpa-mca-vtu-2022-24/blob/production/LICENSE.md"
@@ -84,6 +84,7 @@ const Navbar = () => {
 						</ul>
 					</div>
 				</div>
+				<h1 className="hidden">CGPA Calculator MCA 2022-24</h1>
 				<div className="navbar-center bg-primary-content rounded-xl pe-2">
 					<Link
 						to={"/"}
@@ -92,15 +93,14 @@ const Navbar = () => {
 						<h1>CGPA Calculator MCA 2022-24</h1>
 					</Link>
 					<Link
-						className="text-primary font-semibold"
+						className="hidden text-primary font-semibold md:inline-flex"
 						to={"https://github.com/amal-babu-git"}
 						target="_blank"
 					>
-						<span className="badge badge-primary badge-outline">
-							@amal-babu-git
-						</span>
+						<span className=" badge badge-primary badge-outline ">@amal-babu-git</span>
 					</Link>
 				</div>
+
 				<div className="navbar-end">
 					{/* Additional buttons can be added here */}
 				</div>
