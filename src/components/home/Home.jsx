@@ -24,7 +24,7 @@ const Home = () => {
 	};
 	return (
 		<>
-			<div className="flex justify-center items-center mt-20 mb-2  h-auto text-center">
+			<div className="flex justify-center items-center mt-16 mb-2  h-screen text-center">
 				<div className="">
 					<div className="mb-2 p-1">
 						<button
@@ -84,7 +84,7 @@ const Home = () => {
 								d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 							></path>
 						</svg>
-						<span className="link-primary underline">
+						<span className="link-primary">
 							<Link to={"https://cgpa-sgpa--beta-6o1e7nhr.web.app/"}>
 								Checkout the Beta version of this app
 							</Link>
