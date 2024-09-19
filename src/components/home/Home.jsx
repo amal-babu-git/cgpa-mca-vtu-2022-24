@@ -24,7 +24,7 @@ const Home = () => {
 	};
 	return (
 		<>
-			<div className="flex justify-center items-center mt-12 mb-2  h-screen text-center">
+			<div className="flex justify-center items-center mt-10 mb-2  h-screen text-center">
 				<div className="">
 					<div className="mb-2 p-1">
 						<button
