@@ -150,7 +150,8 @@ const SemFourSGPACard = () => {
 										name="projectWorkPhase2"
 										id="projectWorkPhase2"
 										required
-										defaultValue={semFourMarks?.projectWorkPhase2}
+										placeholder="Please Enter. Sorry, I forgot"
+										// defaultValue={semFourMarks?.projectWorkPhase2}
 										{...register("projectWorkPhase2")}
 									/>
 								</div>
