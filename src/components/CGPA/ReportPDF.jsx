@@ -67,7 +67,7 @@ const ReportPDF = () => {
 
 		// send info to fireStore for bug fixing and improve performance of app.
 		try {
-			await addDoc(collection(db, "sem3"), {
+			await addDoc(collection(db, "sem4"), {
 				usn: data.usn ?? "",
 				name: data.name ?? "",
 				sem1: semOneMarks ?? "",

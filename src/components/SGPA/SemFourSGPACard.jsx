@@ -14,14 +14,14 @@ const SemFourSGPACard = () => {
 	const onSubmit = (data) => {
 		console.log(data);
 		// make the project work phase 2 to half because max mark is 200, but calculateGP only support 100
-		data["projectWorkPhase2"] = parseFloat(data["projectWorkPhase2"]) / 2;
+		// data["projectWorkPhase2"] = parseFloat(data["projectWorkPhase2"]) / 2;
 		// calculate  grade-point * course-credit
 		const pe5 = calculateGP(parseFloat(data.pe5)) * parseFloat(3);
 		const pe6 = calculateGP(parseFloat(data.pe6)) * parseFloat(3);
 		const technicalSeminar =
 			calculateGP(parseFloat(data.technicalSeminar)) * parseFloat(2);
 		const projectWorkPhase2 =
-			calculateGP(parseFloat(data.projectWorkPhase2)) * parseFloat(16);
+			calculateGP200(parseFloat(data.projectWorkPhase2)) * parseFloat(16);
 
 		//find sum
 		const sum = pe5 + pe6 + technicalSeminar + projectWorkPhase2;
@@ -51,6 +51,25 @@ const SemFourSGPACard = () => {
 		} else if (mark >= 55 && mark <= 59) {
 			return 6;
 		} else if (mark >= 50 && mark <= 54) {
+			return 5;
+		} else {
+			return 0;
+		}
+	};
+	
+	// function to calculate grade point for marks out of 200
+	const calculateGP200 = (mark) => {
+		if (mark >= 180 && mark <= 200) {
+			return 10;
+		} else if (mark >= 160 && mark <= 179) {
+			return 9;
+		} else if (mark >= 140 && mark <= 159) {
+			return 8;
+		} else if (mark >= 120 && mark <= 139) {
+			return 7;
+		} else if (mark >= 110 && mark <= 119) {
+			return 6;
+		} else if (mark >= 100 && mark <= 109) {
 			return 5;
 		} else {
 			return 0;
@@ -150,8 +169,8 @@ const SemFourSGPACard = () => {
 										name="projectWorkPhase2"
 										id="projectWorkPhase2"
 										required
-										placeholder="Please Enter. Sorry, I forgot"
-										// defaultValue={semFourMarks?.projectWorkPhase2}
+										// placeholder="Please Enter. Sorry, I forgot"
+										defaultValue={semFourMarks?.projectWorkPhase2}
 										{...register("projectWorkPhase2")}
 									/>
 								</div>
