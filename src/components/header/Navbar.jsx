@@ -21,9 +21,12 @@ const Navbar = () => {
 	const onClickCGPA = () => {
 		navigate("/cgpa");
 	};
-	// const onClickPrivacyPolicy = () => {
-	// 	navigate("/privacy-policy");
-	// };
+	const onClickAbout = () => {
+		navigate("/about");
+	};
+	const onClickPrivacyPolicy = () => {
+		navigate("/privacy-policy");
+	};
 
 	return (
 		<>
@@ -68,11 +71,14 @@ const Navbar = () => {
 							<li>
 								<a onClick={onClickCGPA}>CGPA</a>
 							</li>
-							{/* <li>
+							<li>
+								<a onClick={onClickAbout}>About</a>
+							</li>
+							<li>
 								<a onClick={onClickPrivacyPolicy}>
 									Terms and Conditions & Privacy Policy
 								</a>
-							</li> */}
+							</li>
 							<li>
 								<Link
 									to="https://github.com/amal-babu-git/cgpa-mca-vtu-2022-24/blob/production/LICENSE.md"
@@ -84,13 +90,14 @@ const Navbar = () => {
 						</ul>
 					</div>
 				</div>
-				<h1 className="hidden">CGPA Calculator MCA 2022-24</h1>
+				<h1 className="hidden">CGPA Calculator MCA (VTU)</h1>
 				<div className="navbar-center bg-primary-content rounded-xl pe-2">
 					<Link
 						to={"/"}
 						className="btn btn-ghost normal-case text-xl "
 					>
-						<h1>CGPA Calculator MCA 2022-24</h1>
+						<h1>MCA CGPA Calculator</h1>
+						<h2 className="hidden">CGPA CALCULATOR FOR MCA VTU SYLLABUS</h2>
 					</Link>
 					<Link
 						className="hidden text-primary font-semibold md:inline-flex"

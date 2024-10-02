@@ -10,6 +10,7 @@ import PrivacyP from "./components/privacy/PrivacyP";
 import SemThreeSGPACard from "./components/SGPA/semThreeSGPACard";
 import ReportPDF from "./components/CGPA/ReportPDF";
 import SemFourSGPACard from "./components/SGPA/SemFourSGPACard";
+import About from "./components/about/About";
 
 function App() {
 	return (
@@ -41,6 +42,10 @@ function App() {
 					<Route
 						path="cgpa"
 						element={<CGPA />}
+					/>
+					<Route
+						path="about"
+						element={<About />}
 					/>
 					<Route
 						path="privacy-policy"
