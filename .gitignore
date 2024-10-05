@@ -30,3 +30,4 @@ build/
 userDataCollection/
 build/
 .env
+admin/
