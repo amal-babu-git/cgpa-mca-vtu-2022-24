@@ -79,6 +79,7 @@ const ReportPDF = () => {
 				sgpa3: semThreeSGPA ?? 0,
 				sgpa4: semFourSGPA ?? 0,
 				cgpa: CGPA ?? 0,
+				date: new Date().toLocaleString(),
 				// rating: data?.rating ?? 0,
 			});
 		} catch (error) {
