@@ -1,4 +1,5 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import HomePageNotifications from "../notifications/HomePageNotifications";
 
 const Home = () => {
 	const navigate = useNavigate();
@@ -67,61 +68,7 @@ const Home = () => {
 						</button>
 					</div>
 					{/* home page alert  */}
-					<div
-						role="alert"
-						className="alert"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							className="stroke-info h-6 w-6 shrink-0"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-							></path>
-						</svg>
-						<span className="link-primary">
-							<Link to={"https://cgpa-sgpa--beta-6o1e7nhr.web.app/"}>
-								Checkout the Beta version of this app
-							</Link>
-						</span>
-					</div>
-
-				
-					<div
-						role="alert"
-						className="alert mt-2"
-					>
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							fill="none"
-							viewBox="0 0 24 24"
-							className="stroke-info h-6 w-6 shrink-0"
-						>
-							<path
-								strokeLinecap="round"
-								strokeLinejoin="round"
-								strokeWidth="2"
-								d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-							></path>
-						</svg>
-						<span>
-							<Link
-								to={
-									"https://medium.com/@onlineamalbabu/sgpa-and-cgpa-calculation-for-mca-course-at-vtu-7bf3f8400631"
-								}
-								target="_blank"
-								className="link-primary"
-							>
-								How to calculate CGPA manually{" "}
-								<span className="underline">click</span>
-							</Link>
-						</span>
-					</div>
+					<HomePageNotifications />
 					{/* alert 3
 					<div className="collapse bg-base-200 mt-2 w-96">
 						<input type="checkbox" />
