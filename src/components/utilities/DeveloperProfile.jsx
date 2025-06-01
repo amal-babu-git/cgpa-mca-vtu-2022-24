@@ -4,10 +4,10 @@ const DeveloperProfile = () => {
 			<div className="text-end">
 				<a
 					className="btn btn-link"
-					href="https://github.com/amal-babu-git"
+					href="https://amal-babu-git.github.io"
 					// target="_blank"
 				>
-					Dev By: AMAL BABU
+					AMAL BABU
 				</a>
 			</div>
 		</>
